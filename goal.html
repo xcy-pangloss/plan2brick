@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan2Brick · Goal, Input, Output, Explained</title>
+<meta name="description" content="A detailed walkthrough of Plan2Brick's goal, input and output: floor plan plus one sentence in, three validated LEGO scenes out, with the actual R1 scene data behind the numbers.">
+<meta property="og:title" content="Plan2Brick · Goal, Input, Output, Explained">
+<meta property="og:description" content="What “buildable” means, what the system reads, and what each candidate ships with — expanded from slides 2–5 with real R1 IR, BOM and validation data.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xcy-pangloss.github.io/plan2brick/goal.html">
+<meta property="og:image" content="https://xcy-pangloss.github.io/plan2brick/assets/renders/floorplan_R1_plan0_home.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='20' width='52' height='34' rx='6' fill='%23b23a2e'/%3E%3Crect x='14' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3Crect x='38' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./goal.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the walkthrough</a>
+
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="Plan2Brick home">
+    <span class="brick" aria-hidden="true"><i></i><i></i></span>
+    <span>Plan2Brick</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="index.html">Overview</a>
+    <a href="goal.html" aria-current="page">In detail</a>
+    <a href="index.html#viewer">3D demo</a>
+    <a href="index.html#method">Method</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#library">Library</a>
+    <a href="index.html#limitations">Limitations</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="detail-hero wrap">
+  <p class="eyebrow">Goal · Input · Output · explained</p>
+  <h1>Goal, input, output,<br><em>explained.</em></h1>
+  <p class="detail-sub">A detailed walkthrough of the three questions readers ask first: what the system is for, what it takes, and what comes back. It expands slides 2–5 of the 30 October 2026 deck with the actual R1 scene data behind the numbers.</p>
+  <div class="links">
+    <a class="pill" href="index.html#glance">← Back to the three cards</a>
+    <a class="pill primary" href="index.html#viewer"><span class="dot"></span>Explore in 3D</a>
+    <a class="pill" href="assets/slides/slides.pdf">Slides (PDF)</a>
+  </div>
+  <p class="detail-facts"><span><b>9/9</b> candidate scenes green</span><span><b>236/264</b> object requests placed (89.4%)</span><span><b>7,644</b> parts</span><span><b>0</b> cross-room overlaps</span></p>
+
+  <nav class="detail-toc" aria-label="On this page">
+    <a href="#goal"><span>01</span><b>Goal</b><small>What “buildable” means</small></a>
+    <a href="#input"><span>02</span><b>Input</b><small>Plan + one sentence</small></a>
+    <a href="#output"><span>03</span><b>Output</b><small>Three checked candidates</small></a>
+  </nav>
+</section>
+
+<section class="detail-section wrap" id="goal">
+  <div class="section-head">
+    <div><span class="num">01</span><h2>Goal</h2></div>
+    <p>Not a picture of a room — a complete, checkable LEGO scene.</p>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-copy">
+      <p class="lead">The deliverable is not a rendering of an interior. It is a complete LDraw scene: every piece selected from a known library, every object placed inside a room, every wall laid as real brick courses, and the whole assembly passed through a validation gate before it is shown.</p>
+      <p>From one plan and one brief the system returns <strong>three candidate scenes rather than one answer</strong>. A one-sentence brief under-determines the interior, so the solver exposes three plausible room layouts and wall preferences. The reader can compare them instead of accepting a single black box.</p>
+      <div class="callout"><b>Only one step is learned.</b> Image → IR is the only model call. The solver, wall builder, validator and renderer are deterministic: the same IR produces the same <code>.mpd</code>, with no token cost and no sampling variance. In this public build the image → IR step is served from a verified cache, because the available DeepSeek endpoint is text-only.</div>
+    </div>
+
+    <figure class="goal-pair">
+      <div class="goal-shot">
+        <span class="mini-label">Input</span>
+        <img src="assets/plans/R1.png" alt="R1 three-bedroom apartment floor plan" loading="lazy">
+        <b>R1 · 11 rooms</b>
+      </div>
+      <div class="goal-arrow" aria-hidden="true"><span class="arrow-glyph">→</span><small>solve</small></div>
+      <div class="goal-shot">
+        <span class="mini-label">Output</span>
+        <img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 candidate A rendered in LEGO" loading="lazy">
+        <b>A · 1,191 parts</b>
+      </div>
+      <figcaption>One plan and one brief in; three assembled candidates out. The image on the right is candidate A of nine, not a single predetermined answer.</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="block-title">What “buildable” means here</h3>
+  <div class="contract-grid">
+    <article class="contract">
+      <span>01</span>
+      <h3>Known parts</h3>
+      <p>Every piece comes from a 42-item, 16-category furniture library plus standard LDraw wall bricks. No hallucinated geometry.</p>
+    </article>
+    <article class="contract">
+      <span>02</span>
+      <h3>Room-bounded</h3>
+      <p>Furniture is packed against wall bands and kept inside its room. Cross-room and wall–furniture overlaps are recomputed from footprints.</p>
+    </article>
+    <article class="contract">
+      <span>03</span>
+      <h3>Countable</h3>
+      <p>Each candidate ships with a per-part, per-colour BOM. R1 candidate A totals 1,191 pieces: 666 furniture parts + 525 wall bricks.</p>
+    </article>
+    <article class="contract">
+      <span>04</span>
+      <h3>Checked</h3>
+      <p>An LDraw report is classified into real errors, ε notes and sub-millimetre envelope contacts. All nine candidates pass with 0 real errors.</p>
+    </article>
+  </div>
+
+  <h3 class="block-title">The path, step by step</h3>
+  <div class="pipe">
+    <article class="pipe-step">
+      <span class="tag">Input</span>
+      <b>Floor plan + brief</b>
+      <small>R1 drawing plus one sentence of program change.</small>
+    </article>
+    <article class="pipe-step hi">
+      <span class="tag">M3 · IR</span>
+      <b>Scene IR</b>
+      <small>11 rooms; 35 object rows → 41 requests. The only model call.</small>
+    </article>
+    <article class="pipe-step">
+      <span class="tag">M1 · Library</span>
+      <b>Known geometry</b>
+      <small>42 items across 16 categories, with dimensions and part choices.</small>
+    </article>
+    <article class="pipe-step">
+      <span class="tag">M4 · Solver</span>
+      <b>Deterministic assembly</b>
+      <small>Wall-band packing, per-room capacity, collision removal.</small>
+    </article>
+    <article class="pipe-step">
+      <span class="tag">M5 · Output</span>
+      <b>Scene + BOM</b>
+      <small><code>.mpd</code>, per-part CSV and three rendered views.</small>
+    </article>
+    <article class="pipe-step">
+      <span class="tag">M6 · Verify</span>
+      <b>Validation gate</b>
+      <small>LDraw report → real / ε / envelope; overlaps rebuilt.</small>
+    </article>
+  </div>
+
+  <div class="kpi-row">
+    <div><b>9/9</b><span>candidate scenes</span><em>3 plans × 3 candidates, all green</em></div>
+    <div><b>236/264</b><span>object requests placed</span><em>89.4% coverage across nine scenes</em></div>
+    <div><b>7,644</b><span>parts in total</span><em>4,378 furniture + 3,266 wall bricks</em></div>
+    <div><b>0</b><span>cross-room overlaps</span><em>and 0 real validation errors</em></div>
+  </div>
+
+  <p class="fineprint">Scope: three real floor plans, nine candidate scenes and 264 object requests — not a general floor-plan benchmark. “Validated” is computational: an LDraw checker and an independent footprint recomputation, not a physical build test.</p>
+</section>
+
+<section class="detail-section wrap" id="input">
+  <div class="section-head">
+    <div><span class="num">02</span><h2>Input</h2></div>
+    <p>A floor plan and one sentence — that is the whole interface.</p>
+  </div>
+
+  <div class="input-layout">
+    <figure class="detail-plan">
+      <img src="assets/plans/R1.png" alt="R1 floor plan with 11 labelled rooms and metric dimensions" loading="lazy">
+      <figcaption><b>R1 · 11 rooms.</b> Living room 3.9 × 3.8 m; dining room 3.9 × 2.65 m. Dimensions are read from the drawing; uncertain spans are estimated and kept in the IR notes rather than silently rounded.</figcaption>
+    </figure>
+
+    <div class="input-copy">
+      <h3>The floor plan</h3>
+      <p>The plan supplies room boundaries and metric dimensions. The vision model reads the drawing into a schema-checked scene IR: room names, English room types, dimensions, and a note on what was measured versus estimated. The R1 drawing yields <strong>11 rooms</strong>, from the living room and dining room through two bathrooms and three bedrooms.</p>
+
+      <h3>The one-sentence brief</h3>
+      <p>R1’s brief re-furnishes the dining room as a study: the room’s original dining set is removed and three study requests are added — desk, desk chair and bookshelf. The other <strong>38 requests, in the remaining ten rooms, stay untouched</strong>. The brief edits one room’s program, not the whole scene.</p>
+      <blockquote class="detail-quote">“Use the dining room as a study.”</blockquote>
+
+      <table class="brief-table">
+        <thead>
+          <tr><th>Plan</th><th>Rooms</th><th>Brief</th><th>Requests</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R1</td><td>11</td><td>“Use the dining room as a study.”</td><td>41</td></tr>
+          <tr><td>R2</td><td>6</td><td>“Add a desk to the living room.”</td><td>23</td></tr>
+          <tr><td>R3</td><td>7</td><td>“Replace the coffee table with a desk in the living room.”</td><td>24</td></tr>
+        </tbody>
+      </table>
+      <p class="fineprint">Three plans × three candidates = 264 object requests in total. The brief is intentionally short: it is a program change, not a full furniture specification.</p>
+    </div>
+  </div>
+
+  <div class="ir-layout">
+    <div class="ir-copy">
+      <span class="mini-label">Inside the scene IR</span>
+      <h3>Rooms and object requests, schema-checked.</h3>
+      <p><code>floorplan_R1_plan0.json</code> is the IR behind candidate A. It holds <strong>11 rooms</strong> and <strong>35 object rows</strong>; because several rows have <code>count &gt; 1</code>, those rows expand to <strong>41 requested instances</strong>.</p>
+      <p>Room names stay bilingual (<code>name_cn</code> / <code>name_en</code>) so the brief’s room reference and the solver’s English room type can coexist. The <code>placement</code> field keeps the model’s intent, and <code>confidence</code> preserves how sure it was — both are inputs to the solver, not post-hoc explanations.</p>
+      <div class="ir-facts">
+        <div><b>11</b><span>rooms</span></div>
+        <div><b>35</b><span>object rows</span></div>
+        <div><b>41</b><span>requests</span></div>
+        <div><b>42 · 16</b><span>items · categories</span></div>
+      </div>
+      <div class="callout"><b>Public build note.</b> This page calls no model. The only learned step is image → IR, and the available DeepSeek endpoint is text-only, so the verified IR is served from a cache. Everything after the IR is deterministic and reproducible without a model.</div>
+    </div>
+
+    <div>
+      <pre class="code-block"><code>{
+  <span class="k">"source"</span>: <span class="s">"replanned:floorplan_R1.png#cand0"</span>,
+  <span class="k">"image_type"</span>: <span class="s">"floorplan"</span>,
+  <span class="k">"rooms"</span>: [
+    { <span class="k">"name_cn"</span>: <span class="s">"客厅"</span>, <span class="k">"name_en"</span>: <span class="s">"living_room"</span>,
+      <span class="k">"dims_m"</span>: [<span class="n">3.9</span>, <span class="n">3.8</span>] },
+    { <span class="k">"name_cn"</span>: <span class="s">"餐厅"</span>, <span class="k">"name_en"</span>: <span class="s">"study"</span>,
+      <span class="k">"dims_m"</span>: [<span class="n">3.9</span>, <span class="n">2.65</span>],
+      <span class="k">"room_type"</span>: <span class="s">"study"</span> }
+    <span class="c">… 9 more rooms</span>
+  ],
+  <span class="k">"objects"</span>: [
+    { <span class="k">"category"</span>: <span class="s">"sofa"</span>, <span class="k">"label"</span>: <span class="s">"三人沙发"</span>,
+      <span class="k">"count"</span>: <span class="n">1</span>, <span class="k">"room"</span>: <span class="s">"living_room"</span>,
+      <span class="k">"size_est_m"</span>: [<span class="n">2.3</span>, <span class="n">0.95</span>, <span class="n">0.8</span>],
+      <span class="k">"placement"</span>: <span class="s">"客厅西墙，面向东侧电视墙"</span>,
+      <span class="k">"confidence"</span>: <span class="n">0.8</span> },
+    <span class="c">… 33 more object rows, 41 instances in total</span>
+    { <span class="k">"category"</span>: <span class="s">"desk"</span>, <span class="k">"label"</span>: <span class="s">"书桌 (餐厅)"</span>,
+      <span class="k">"count"</span>: <span class="n">1</span>, <span class="k">"room"</span>: <span class="s">"餐厅"</span>,
+      <span class="k">"size_est_m"</span>: [<span class="n">1.2</span>, <span class="n">0.6</span>, <span class="n">0.75</span>],
+      <span class="k">"placement"</span>: <span class="s">"brief: study program"</span>,
+      <span class="k">"confidence"</span>: <span class="n">0.6</span> }
+  ]
+}</code></pre>
+      <p class="fineprint">Excerpt of the actual R1 candidate-A IR. <code>…</code> marks omitted fields and rows; strings are shown as stored.</p>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section wrap" id="output">
+  <div class="section-head">
+    <div><span class="num">03</span><h2>Output</h2></div>
+    <p>Three scored candidates, with the files to inspect them.</p>
+  </div>
+
+  <div class="cand-grid">
+    <article class="cand-card">
+      <div class="cand-head"><span class="cand-letter">A</span><span>Plan 0</span><span class="gate">Gate green</span></div>
+      <img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 candidate A home view" loading="lazy">
+      <ul class="cand-stats">
+        <li><span>Placed</span><b>37 / 41</b></li>
+        <li><span>Parts</span><b>1,191</b></li>
+        <li><span>Real errors</span><b>0</b></li>
+        <li><span>ε notes</span><b>0</b></li>
+      </ul>
+      <div class="cand-actions">
+        <a href="assets/downloads/floorplan_R1_plan0.mpd" download>.mpd</a>
+        <a href="assets/downloads/floorplan_R1_plan0.csv" download>BOM .csv</a>
+      </div>
+    </article>
+    <article class="cand-card">
+      <div class="cand-head"><span class="cand-letter">B</span><span>Plan 1</span><span class="gate">Gate green</span></div>
+      <img src="assets/renders/floorplan_R1_plan1_home.jpg" alt="R1 candidate B home view" loading="lazy">
+      <ul class="cand-stats">
+        <li><span>Placed</span><b>38 / 41</b></li>
+        <li><span>Parts</span><b>1,187</b></li>
+        <li><span>Real errors</span><b>0</b></li>
+        <li><span>ε notes</span><b>2</b></li>
+      </ul>
+      <div class="cand-actions">
+        <a href="assets/downloads/floorplan_R1_plan1.mpd" download>.mpd</a>
+        <a href="assets/downloads/floorplan_R1_plan1.csv" download>BOM .csv</a>
+      </div>
+    </article>
+    <article class="cand-card">
+      <div class="cand-head"><span class="cand-letter">C</span><span>Plan 2</span><span class="gate">Gate green</span></div>
+      <img src="assets/renders/floorplan_R1_plan2_home.jpg" alt="R1 candidate C home view" loading="lazy">
+      <ul class="cand-stats">
+        <li><span>Placed</span><b>36 / 41</b></li>
+        <li><span>Parts</span><b>1,180</b></li>
+        <li><span>Real errors</span><b>0</b></li>
+        <li><span>ε notes</span><b>2</b></li>
+      </ul>
+      <div class="cand-actions">
+        <a href="assets/downloads/floorplan_R1_plan2.mpd" download>.mpd</a>
+        <a href="assets/downloads/floorplan_R1_plan2.csv" download>BOM .csv</a>
+      </div>
+    </article>
+  </div>
+  <p class="cand-note">Coverage is not validity. R1 candidate A places 37 of 41 requests; the four misses are capacity drops — no free wall slot left for a kitchen sink, two toilets and one wardrobe. Nothing was dropped for colliding or for using an invalid part.</p>
+
+  <h3 class="block-title">Three views of candidate A</h3>
+  <div class="view-strip">
+    <figure><img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 A three-quarter view" loading="lazy"><figcaption>3/4 view</figcaption></figure>
+    <figure><img src="assets/renders/floorplan_R1_plan0_top.jpg" alt="R1 A top view" loading="lazy"><figcaption>Top view</figcaption></figure>
+    <figure><img src="assets/renders/floorplan_R1_plan0_front.jpg" alt="R1 A front view" loading="lazy"><figcaption>Front view</figcaption></figure>
+  </div>
+
+  <h3 class="block-title">All nine candidates</h3>
+  <div class="table-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Brief</th>
+          <th>Coverage A · B · C</th>
+          <th>Parts A · B · C</th>
+          <th>Gate</th>
+          <th>ε notes A · B · C</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>R1</b><br><span class="sub">11 rooms</span></td>
+          <td>“Use the dining room as a study.”</td>
+          <td class="num">37/41 · 38/41 · 36/41</td>
+          <td class="num">1,191 · 1,187 · 1,180</td>
+          <td class="gate">3/3 green</td>
+          <td class="num">0 · 2 · 2</td>
+        </tr>
+        <tr>
+          <td><b>R2</b><br><span class="sub">6 rooms</span></td>
+          <td>“Add a desk to the living room.”</td>
+          <td class="num">22/23 · 20/23 · 20/23</td>
+          <td class="num">708 · 694 · 683</td>
+          <td class="gate">3/3 green</td>
+          <td class="num">0 · 1 · 1</td>
+        </tr>
+        <tr>
+          <td><b>R3</b><br><span class="sub">7 rooms</span></td>
+          <td>“Replace the coffee table with a desk in the living room.”</td>
+          <td class="num">21/24 · 21/24 · 21/24</td>
+          <td class="num">672 · 669 · 660</td>
+          <td class="gate">3/3 green</td>
+          <td class="num">1 · 1 · 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="scroll-hint">Swipe horizontally to see the full table →</p>
+  <p class="fineprint">Parts counts include walls (five courses, 1.2 m). Across the suite: 236/264 requests, 7,644 parts, 0 cross-room overlaps and 0 real validation errors.</p>
+
+  <div class="precision-grid">
+    <div class="precision-copy">
+      <span class="mini-label">Verification</span>
+      <h3>Validation, precisely</h3>
+      <p>“Green” is a specific claim. The gate reads the raw LDraw report and classifies each diagnostic, instead of reducing the result to one exit code.</p>
+      <ul class="check-list">
+        <li><b>0 real errors.</b> No assembly diagnostic at or above 1 LDU survives in any of the nine scenes.</li>
+        <li><b>9 ε notes across the suite (0+2+2, 0+1+1, 1+1+1).</b> These are sub-<code>1e-3</code> LDU floating-point notes, recorded per scene, not ignored.</li>
+        <li><b>Envelope contacts are counted separately.</b> LDraw body envelopes may overhang a nominal footprint by ≤0.5 LDU (0.2 mm) at wall or stud margins; these are logged as envelope contacts, not as real errors.</li>
+        <li><b>Overlaps recomputed, not trusted.</b> Cross-room and wall–furniture overlaps are recalculated from footprints: 0 and 0. The build record’s own overlap list is empty too.</li>
+      </ul>
+      <p class="fineprint">The raw LDraw report is preserved, including its diagnostics, and the evaluation record keeps the raw exit code alongside the classification. This is computational validation, not a physical build test.</p>
+    </div>
+
+    <aside class="bom-card">
+      <span class="mini-label">Bill of materials · R1 A</span>
+      <h3>1,191 pieces, 197 part/colour rows</h3>
+      <table class="bom-table">
+        <tbody>
+          <tr><td>202</td><td>Brick 1 × 8</td><td>Light Bluish Grey</td></tr>
+          <tr><td>102</td><td>Brick 1 × 3</td><td>Light Bluish Grey</td></tr>
+          <tr><td>69</td><td>Brick 1 × 2</td><td>Light Bluish Grey</td></tr>
+          <tr><td>64</td><td>Brick 1 × 6</td><td>Light Bluish Grey</td></tr>
+          <tr><td>63</td><td>Brick 1 × 4</td><td>Light Bluish Grey</td></tr>
+        </tbody>
+      </table>
+      <p class="fineprint">Top five rows by quantity. They are the light-grey wall bricks of the five-course wall builder. The full BOM is per part and per colour.</p>
+      <a class="pill" href="assets/downloads/floorplan_R1_plan0.csv" download>Download full BOM (.csv)</a>
+    </aside>
+  </div>
+
+  <h3 class="block-title">What each candidate ships with</h3>
+  <div class="output-files">
+    <div class="file-card"><b>.mpd</b><span>LDraw scene with furniture and wall bricks.</span></div>
+    <div class="file-card"><b>BOM .csv</b><span>Per-part, per-colour quantities.</span></div>
+    <div class="file-card"><b>validate .json</b><span>Raw LDraw report, diagnostics preserved.</span></div>
+    <div class="file-card"><b>3 views</b><span>3/4, top and front renders.</span></div>
+  </div>
+
+  <div class="cta-row">
+    <a class="pill primary" href="index.html#viewer"><span class="dot"></span>Explore all nine in 3D</a>
+    <a class="pill" href="assets/slides/slides.pdf">Slides (PDF)</a>
+    <a class="pill" href="index.html#results">Back to results</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Plan2Brick · CSCI4998 Final-Year Project · 2026</span>
+    <span>Xiao Chuanyi · The Chinese University of Hong Kong</span>
+    <span><a href="index.html">Project page</a> · <a href="assets/slides/slides.pdf">Slides</a> · <a href="index.html#citation">Citation</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

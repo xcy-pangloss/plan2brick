@@ -183,6 +183,7 @@ p { margin: 0; }
   color: var(--muted); font-size: .69rem; font-weight: 650;
 }
 .glance .fineprint { margin-top: 16px; }
+.glance-more { margin-top: 16px; display: flex; justify-content: center; }
 
 /* ---------- sections ---------- */
 section { scroll-margin-top: 72px; }
