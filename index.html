@@ -30,6 +30,7 @@
     <span>Plan2Brick</span>
   </a>
   <nav aria-label="Sections">
+    <a href="#glance">At a glance</a>
     <a href="#overview">Overview</a>
     <a href="#viewer">3D demo</a>
     <a href="#method">Method</a>
@@ -50,6 +51,7 @@
   <p class="supervisor">Supervised by Prof. Philip Fu</p>
   <div class="links">
     <a class="pill primary" href="#viewer"><span class="dot"></span>Explore in 3D</a>
+    <a class="pill" href="#glance">Goal · Input · Output</a>
     <a class="pill" href="assets/slides/slides.pdf">Slides (PDF)</a>
     <a class="pill" href="#results">Results</a>
     <a class="pill" href="#citation">BibTeX</a>
@@ -59,6 +61,99 @@
     <img src="assets/hero.jpg" alt="The R1 three-bedroom apartment reconstructed in LEGO, seen in a three-quarter view with light-grey LEGO brick walls and labelled rooms.">
     <figcaption><b>R1 · three-bedroom apartment.</b> 1,191 parts across 11 rooms from the brief “Use the dining room as a study.” The scene below is live: orbit, switch candidates, and toggle the LEGO walls.</figcaption>
   </figure>
+</section>
+
+<section class="glance wrap" id="glance">
+  <div class="section-head reveal">
+    <div><span class="num">00</span><h2>Goal, input, output</h2></div>
+    <p>What the system is for, what it takes, and what comes back.</p>
+  </div>
+
+  <div class="glance-grid reveal">
+    <article class="glance-card">
+      <span class="mini-label">Goal</span>
+      <h3>A floor plan and one sentence become buildable LEGO interiors.</h3>
+      <p>The system reads the plan, applies the brief, and solves a furniture layout room by room.</p>
+      <figure class="glance-flow" aria-hidden="true">
+        <svg viewBox="0 0 260 210">
+          <g>
+            <rect x="6" y="4" width="112" height="88" rx="6" fill="#fff" stroke="#d8d1c6" stroke-width="1.5"/>
+            <path d="M6 36h44M50 4v32M50 36v56M50 62h68M94 36v26" fill="none" stroke="#c9c1b4" stroke-width="1.5"/>
+            <rect x="12" y="10" width="34" height="20" rx="3" fill="#f4e7d6"/>
+            <rect x="56" y="42" width="28" height="15" rx="3" fill="#dfe9f4"/>
+            <rect x="100" y="10" width="12" height="20" rx="2" fill="#e7e1d7"/>
+            <rect x="56" y="66" width="28" height="14" rx="3" fill="#eee8dc"/>
+          </g>
+          <text x="62" y="106" text-anchor="middle" font-size="9" fill="#8a857b" font-weight="600" letter-spacing=".09em">FLOOR PLAN</text>
+          <g>
+            <rect x="142" y="4" width="112" height="88" rx="6" fill="#fbf3f1" stroke="#e3c7c2" stroke-dasharray="3 3"/>
+            <text x="154" y="26" font-size="8.5" fill="#b23a2e" font-weight="700" letter-spacing=".09em">BRIEF</text>
+            <text x="154" y="48" font-size="9.5" font-style="italic" fill="#3c4048">“Use the dining</text>
+            <text x="154" y="62" font-size="9.5" font-style="italic" fill="#3c4048">room as a study.”</text>
+          </g>
+          <text x="198" y="106" text-anchor="middle" font-size="9" fill="#8a857b" font-weight="600" letter-spacing=".09em">ONE SENTENCE</text>
+          <g fill="none" stroke="#b23a2e" stroke-width="2">
+            <path d="M130 114v22"/>
+            <path d="M123 130l7 8 7-8"/>
+          </g>
+          <g>
+            <rect x="18" y="184" width="84" height="16" rx="3" fill="#9aa0a8"/>
+            <rect x="26" y="168" width="76" height="16" rx="3" fill="#b23a2e"/>
+            <rect x="34" y="152" width="68" height="16" rx="3" fill="#7d838c"/>
+            <g fill="#6f757e">
+              <rect x="24" y="179" width="10" height="5" rx="2"/><rect x="40" y="179" width="10" height="5" rx="2"/>
+              <rect x="56" y="179" width="10" height="5" rx="2"/><rect x="72" y="179" width="10" height="5" rx="2"/>
+              <rect x="88" y="179" width="9" height="5" rx="2"/>
+            </g>
+            <g fill="#a02f24">
+              <rect x="32" y="163" width="10" height="5" rx="2"/><rect x="48" y="163" width="10" height="5" rx="2"/>
+              <rect x="64" y="163" width="10" height="5" rx="2"/><rect x="80" y="163" width="10" height="5" rx="2"/>
+            </g>
+            <g fill="#666c75">
+              <rect x="40" y="147" width="10" height="5" rx="2"/><rect x="56" y="147" width="10" height="5" rx="2"/>
+              <rect x="72" y="147" width="10" height="5" rx="2"/>
+            </g>
+          </g>
+          <g>
+            <text x="124" y="160" font-size="8.5" fill="#b23a2e" font-weight="700" letter-spacing=".09em">VALIDATED</text>
+            <text x="124" y="179" font-size="12" fill="#191a1e" font-weight="650">LEGO scene</text>
+            <text x="124" y="195" font-size="9" fill="#8a857b">.mpd + BOM</text>
+          </g>
+        </svg>
+      </figure>
+      <ul class="glance-checks">
+        <li>Real part count and BOM</li>
+        <li>Zero cross-room overlaps</li>
+        <li>Editable .mpd scene</li>
+      </ul>
+    </article>
+
+    <article class="glance-card">
+      <span class="mini-label">Input</span>
+      <h3>One floor plan, one brief.</h3>
+      <p>The plan supplies rooms and metric dimensions; one sentence adds the requirements.</p>
+      <figure class="glance-figure glance-plan">
+        <img src="assets/plans/R1.png" alt="R1 three-bedroom floor plan drawing" loading="lazy">
+      </figure>
+      <blockquote class="brief glance-brief">“Use the dining room as a study.”</blockquote>
+    </article>
+
+    <article class="glance-card">
+      <span class="mini-label">Output</span>
+      <h3>Three validated candidates, ready to build.</h3>
+      <p>Different room programs and adjacencies, all from the same deterministic solver.</p>
+      <figure class="glance-trio">
+        <div><img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 candidate A" loading="lazy"><span class="glance-badge">A</span></div>
+        <div><img src="assets/renders/floorplan_R1_plan1_home.jpg" alt="R1 candidate B" loading="lazy"><span class="glance-badge">B</span></div>
+        <div><img src="assets/renders/floorplan_R1_plan2_home.jpg" alt="R1 candidate C" loading="lazy"><span class="glance-badge">C</span></div>
+        <div class="glance-fact"><strong>3/3</strong><span>gate green</span><span>0 overlaps</span></div>
+      </figure>
+      <div class="glance-chips">
+        <span>36–38/41 placed</span><span>.mpd + BOM</span><span>3 views</span>
+      </div>
+    </article>
+  </div>
+  <p class="fineprint reveal">Illustrated with R1, an 11-room apartment: one plan and one brief produce candidates A/B/C, each validated with zero cross-room overlaps.</p>
 </section>
 
 <section class="abstract wrap reveal" id="overview">
