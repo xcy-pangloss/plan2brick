@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan2Brick · From a Floor Plan and One Sentence to Buildable LEGO Interiors</title>
-<meta name="description" content="Plan2Brick turns a floor plan and one sentence of natural-language brief into validated, buildable LEGO interior scenes. Explore three real floor plans and nine candidate layouts in interactive 3D.">
+<meta name="description" content="Plan2Brick turns a floor plan and one sentence of natural-language brief into validated, buildable LEGO interior scenes, including real brick walls. Explore three real floor plans and nine candidate layouts in interactive 3D.">
 <meta property="og:title" content="Plan2Brick · Floor plan + one sentence → buildable LEGO interiors">
-<meta property="og:description" content="An end-to-end system for floor-plan-conditioned LEGO scene generation. 9/9 candidate scenes validated, 236/264 object requests, 4,378 parts, zero cross-room overlaps.">
+<meta property="og:description" content="An end-to-end system for floor-plan-conditioned LEGO scene generation. 9/9 candidate scenes validated, 236/264 object requests, 7,644 parts including 3,266 wall bricks, zero cross-room overlaps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xcy-pangloss.github.io/plan2brick/">
 <meta property="og:image" content="https://xcy-pangloss.github.io/plan2brick/assets/hero.jpg">
@@ -56,16 +56,16 @@
   </div>
 
   <figure class="teaser">
-    <img src="assets/hero.jpg" alt="The R1 three-bedroom apartment reconstructed in LEGO, seen in a three-quarter view with translucent walls and labelled rooms.">
-    <figcaption><b>R1 · three-bedroom apartment.</b> 666 parts across 11 rooms from the brief “Use the dining room as a study.” The scene below is live: orbit, switch candidates, and toggle the wall overlay.</figcaption>
+    <img src="assets/hero.jpg" alt="The R1 three-bedroom apartment reconstructed in LEGO, seen in a three-quarter view with light-grey LEGO brick walls and labelled rooms.">
+    <figcaption><b>R1 · three-bedroom apartment.</b> 1,191 parts across 11 rooms from the brief “Use the dining room as a study.” The scene below is live: orbit, switch candidates, and toggle the LEGO walls.</figcaption>
   </figure>
 </section>
 
 <section class="abstract wrap reveal" id="overview">
   <div class="abstract-card">
     <h2>Abstract</h2>
-    <p class="lead">We present <strong>Plan2Brick</strong>, a system that turns a floor-plan image and one sentence of natural-language brief into a set of buildable LEGO interior scenes. A vision model reads rooms and dimensions into a schema-checked scene IR; a curated <strong>42-object / 16-category</strong> library supplies the geometry; a deterministic solver selects parts, packs furniture against wall bands, and removes both intra-room and cross-room collisions; the LDraw toolchain validates and renders every candidate.</p>
-    <p>On three real floor plans, all <strong>nine candidate scenes</strong> pass validation with <strong>zero cross-room overlaps</strong>: <strong>236/264</strong> object requests are placed, using <strong>4,378</strong> LEGO parts in total. This page lets you inspect every candidate in 3D, toggle a wall-and-floor overlay to read the room layout, compare the three topology candidates, and download the <code>.mpd</code> scene and its BOM.</p>
+    <p class="lead">We present <strong>Plan2Brick</strong>, a system that turns a floor-plan image and one sentence of natural-language brief into a set of buildable LEGO interior scenes. A vision model reads rooms and dimensions into a schema-checked scene IR; a curated <strong>42-object / 16-category</strong> library supplies the geometry; a deterministic solver selects parts, packs furniture against wall bands, and removes both intra-room and cross-room collisions; a LEGO wall builder lays five interlocking brick courses along every room boundary; the LDraw toolchain validates and renders every candidate.</p>
+    <p>On three real floor plans, all <strong>nine candidate scenes</strong> pass validation with <strong>zero cross-room overlaps</strong>: <strong>236/264</strong> object requests are placed, using <strong>4,378 furniture parts plus 3,266 wall bricks</strong> in total. This page lets you inspect every candidate in 3D, switch the LEGO walls between ghost and solid to read the room layout, compare the three topology candidates, and download the <code>.mpd</code> scene and its BOM.</p>
   </div>
 </section>
 
@@ -75,7 +75,7 @@
       <span class="num">01</span>
       <h2>Input → three candidate interiors</h2>
     </div>
-    <p>Pick a real floor plan and a candidate. Drag to orbit, scroll to zoom, and switch the wall overlay to read the plan.</p>
+    <p>Pick a real floor plan and a candidate. Drag to orbit, scroll to zoom, and switch the LEGO walls between off, ghost and solid to read the plan.</p>
   </div>
 
   <div class="plan-tabs reveal" id="planTabs" role="tablist" aria-label="Floor plans"></div>
@@ -125,7 +125,7 @@
           <p id="loaderText">Preparing parts…</p>
           <div class="progress"><i id="loaderBar"></i></div>
         </div>
-        <div class="stage-note">Walls &amp; floors are a layout overlay, not BOM parts.</div>
+        <div class="stage-note">Walls are real LEGO bricks in the BOM; floors are a thin overlay.</div>
       </div>
 
       <div class="viewer-foot">
@@ -136,7 +136,7 @@
   </div>
 
   <div class="render-strip reveal" id="renderStrip"></div>
-  <p class="fineprint reveal">The render strip is captured from the live 3D view, reconstructed from the same <code>.mpd</code> placements. The wall/floor overlay is derived from the IR room zones and is excluded from the part count and BOM.</p>
+  <p class="fineprint reveal">The render strip is captured from the live 3D view, reconstructed from the same <code>.mpd</code> placements. Walls are ordinary LDraw bricks in that file and in the BOM; only the thin floor slabs are viewer geometry outside the part count.</p>
 </section>
 
 <section class="method wrap" id="method">
@@ -195,7 +195,7 @@
   <div class="kpis reveal">
     <div class="kpi"><span class="kpi-n">9/9</span><span class="kpi-l">candidate scenes green</span></div>
     <div class="kpi"><span class="kpi-n">236<small>/264</small></span><span class="kpi-l">object requests placed (89.4%)</span></div>
-    <div class="kpi"><span class="kpi-n">4,378</span><span class="kpi-l">LEGO parts across the nine scenes</span></div>
+    <div class="kpi"><span class="kpi-n">7,644</span><span class="kpi-l">LEGO parts across the nine scenes · 3,266 wall bricks</span></div>
     <div class="kpi"><span class="kpi-n">0</span><span class="kpi-l">cross-room overlaps · 0 real validate errors</span></div>
   </div>
 
@@ -252,8 +252,8 @@
       <p>The three candidates preserve the room program and dimensions but explore different adjacencies. They are design alternatives for comparison, not a metric reconstruction of the input plan.</p>
     </article>
     <article class="limit">
-      <h3>Walls are a viewer overlay</h3>
-      <p>The wall and floor geometry is generated from the IR room zones so the layout is legible. It is not a stack of LEGO bricks, is not counted in the 4,378 parts, and is excluded from the BOM.</p>
+      <h3>Walls are bricks; floors are not</h3>
+      <p>Room boundaries are built from five interlocking courses of real LDraw bricks (1.2 m high, Light Bluish Gray 71), counted in every part total and BOM. The thin floor slabs are still viewer geometry outside the model, and there are no door or window openings yet.</p>
     </article>
     <article class="limit">
       <h3>Validated, not physically proven</h3>

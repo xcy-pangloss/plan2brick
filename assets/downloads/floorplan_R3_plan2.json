@@ -34,6 +34,1026 @@
       "line_number": null,
       "section": null,
       "instances": [
+        403,
+        106
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 409,
+          "source_path": [
+            409
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 111,
+          "source_path": [
+            111
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        403,
+        107
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 409,
+          "source_path": [
+            409
+          ]
+        },
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 112,
+          "source_path": [
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        403,
+        125
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 409,
+          "source_path": [
+            409
+          ]
+        },
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 130,
+          "source_path": [
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        404,
+        124
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 410,
+          "source_path": [
+            410
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 129,
+          "source_path": [
+            129
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        404,
+        125
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 410,
+          "source_path": [
+            410
+          ]
+        },
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 130,
+          "source_path": [
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        455,
+        106
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 461,
+          "source_path": [
+            461
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 111,
+          "source_path": [
+            111
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        455,
+        112
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 461,
+          "source_path": [
+            461
+          ]
+        },
+        {
+          "part": "3070b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 117,
+          "source_path": [
+            117
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        456,
+        124
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3622.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 462,
+          "source_path": [
+            462
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 129,
+          "source_path": [
+            129
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        456,
+        130
+      ],
+      "penetration": 0.3000000000000007,
+      "sources": [
+        {
+          "part": "3622.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 462,
+          "source_path": [
+            462
+          ]
+        },
+        {
+          "part": "3070b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 135,
+          "source_path": [
+            135
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        107,
+        369
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 112,
+          "source_path": [
+            112
+          ]
+        },
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 375,
+          "source_path": [
+            375
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        369,
+        103
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 375,
+          "source_path": [
+            375
+          ]
+        },
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 108,
+          "source_path": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        369,
+        108
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 375,
+          "source_path": [
+            375
+          ]
+        },
+        {
+          "part": "3021.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 113,
+          "source_path": [
+            113
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        429,
+        79
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 435,
+          "source_path": [
+            435
+          ]
+        },
+        {
+          "part": "3032.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 84,
+          "source_path": [
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        429,
+        87
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 435,
+          "source_path": [
+            435
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 92,
+          "source_path": [
+            92
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        429,
+        86
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 435,
+          "source_path": [
+            435
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 91,
+          "source_path": [
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        429,
+        85
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 435,
+          "source_path": [
+            435
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 90,
+          "source_path": [
+            90
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        429,
+        84
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 435,
+          "source_path": [
+            435
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 89,
+          "source_path": [
+            89
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        370,
+        79
+      ],
+      "penetration": 0.2510000000000012,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 376,
+          "source_path": [
+            376
+          ]
+        },
+        {
+          "part": "3032.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 84,
+          "source_path": [
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        79,
+        430
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3032.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 84,
+          "source_path": [
+            84
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 436,
+          "source_path": [
+            436
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        441,
+        316
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 447,
+          "source_path": [
+            447
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 321,
+          "source_path": [
+            321
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        84,
+        430
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 89,
+          "source_path": [
+            89
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 436,
+          "source_path": [
+            436
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        430,
+        83
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 436,
+          "source_path": [
+            436
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 88,
+          "source_path": [
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        430,
+        47
+      ],
+      "penetration": 0.24299999999999855,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 436,
+          "source_path": [
+            436
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 52,
+          "source_path": [
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        430,
+        48
+      ],
+      "penetration": 0.24299999999999855,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 436,
+          "source_path": [
+            436
+          ]
+        },
+        {
+          "part": "3024.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 53,
+          "source_path": [
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        384,
+        316
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 390,
+          "source_path": [
+            390
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 321,
+          "source_path": [
+            321
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        316,
+        442
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 321,
+          "source_path": [
+            321
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 448,
+          "source_path": [
+            448
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        316,
+        385
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 321,
+          "source_path": [
+            321
+          ]
+        },
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 391,
+          "source_path": [
+            391
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        372,
+        47
+      ],
+      "penetration": 0.24299999999999855,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 378,
+          "source_path": [
+            378
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 52,
+          "source_path": [
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        372,
+        48
+      ],
+      "penetration": 0.24299999999999855,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 378,
+          "source_path": [
+            378
+          ]
+        },
+        {
+          "part": "3024.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 53,
+          "source_path": [
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        372,
+        44
+      ],
+      "penetration": 0.2430000000000021,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 378,
+          "source_path": [
+            378
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 49,
+          "source_path": [
+            49
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        546,
+        60
+      ],
+      "penetration": 0.31662799999999436,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 552,
+          "source_path": [
+            552
+          ]
+        },
+        {
+          "part": "3020.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 65,
+          "source_path": [
+            65
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        431,
+        44
+      ],
+      "penetration": 0.2430000000000021,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 437,
+          "source_path": [
+            437
+          ]
+        },
+        {
+          "part": "2431.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 49,
+          "source_path": [
+            49
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        431,
+        60
+      ],
+      "penetration": 0.31641350863429807,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 437,
+          "source_path": [
+            437
+          ]
+        },
+        {
+          "part": "3020.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 65,
+          "source_path": [
+            65
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        60,
+        489
+      ],
+      "penetration": 0.3165575086342969,
+      "sources": [
+        {
+          "part": "3020.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 65,
+          "source_path": [
+            65
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 495,
+          "source_path": [
+            495
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
         224,
         226
       ],
@@ -58,12 +1078,1301 @@
       ]
     },
     {
-      "code": "assembly.disconnected_evidence",
-      "severity": "warning",
-      "message": "Connection analysis finds multiple groups. Investigate floating parts, missing connector metadata, or intentional separate objects.",
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
       "line_number": null,
       "section": null,
-      "component_count": 41
+      "instances": [
+        433,
+        231
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 439,
+          "source_path": [
+            439
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 236,
+          "source_path": [
+            236
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        375,
+        231
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 381,
+          "source_path": [
+            381
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 236,
+          "source_path": [
+            236
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        231,
+        376
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 236,
+          "source_path": [
+            236
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 382,
+          "source_path": [
+            382
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        231,
+        434
+      ],
+      "penetration": 0.29999999999999716,
+      "sources": [
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 236,
+          "source_path": [
+            236
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 440,
+          "source_path": [
+            440
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        559,
+        172
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 565,
+          "source_path": [
+            565
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        559,
+        173
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 565,
+          "source_path": [
+            565
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 178,
+          "source_path": [
+            178
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        420,
+        137
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 426,
+          "source_path": [
+            426
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 142,
+          "source_path": [
+            142
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        420,
+        155
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 426,
+          "source_path": [
+            426
+          ]
+        },
+        {
+          "part": "3022.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 160,
+          "source_path": [
+            160
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        445,
+        170
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 451,
+          "source_path": [
+            451
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 175,
+          "source_path": [
+            175
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        445,
+        171
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 451,
+          "source_path": [
+            451
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 176,
+          "source_path": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        445,
+        168
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 451,
+          "source_path": [
+            451
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 173,
+          "source_path": [
+            173
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        445,
+        169
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 451,
+          "source_path": [
+            451
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 174,
+          "source_path": [
+            174
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        475,
+        137
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 481,
+          "source_path": [
+            481
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 142,
+          "source_path": [
+            142
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        475,
+        147
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 481,
+          "source_path": [
+            481
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 152,
+          "source_path": [
+            152
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        475,
+        170
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 481,
+          "source_path": [
+            481
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 175,
+          "source_path": [
+            175
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        475,
+        171
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 481,
+          "source_path": [
+            481
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 176,
+          "source_path": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        476,
+        137
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 482,
+          "source_path": [
+            482
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 142,
+          "source_path": [
+            142
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        476,
+        147
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 482,
+          "source_path": [
+            482
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 152,
+          "source_path": [
+            152
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        476,
+        158
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 482,
+          "source_path": [
+            482
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 163,
+          "source_path": [
+            163
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        476,
+        159
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 482,
+          "source_path": [
+            482
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 164,
+          "source_path": [
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        147
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3004.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 152,
+          "source_path": [
+            152
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        149
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 154,
+          "source_path": [
+            154
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        151
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3069b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 156,
+          "source_path": [
+            156
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        159
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 164,
+          "source_path": [
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        162
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 167,
+          "source_path": [
+            167
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        171
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 176,
+          "source_path": [
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        534,
+        172
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 540,
+          "source_path": [
+            540
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        592,
+        151
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 598,
+          "source_path": [
+            598
+          ]
+        },
+        {
+          "part": "3069b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 156,
+          "source_path": [
+            156
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        592,
+        162
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 598,
+          "source_path": [
+            598
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 167,
+          "source_path": [
+            167
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        592,
+        163
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 598,
+          "source_path": [
+            598
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 168,
+          "source_path": [
+            168
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        592,
+        172
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 598,
+          "source_path": [
+            598
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        592,
+        173
+      ],
+      "penetration": 0.10000000000002274,
+      "sources": [
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 598,
+          "source_path": [
+            598
+          ]
+        },
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 178,
+          "source_path": [
+            178
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        171,
+        505
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 176,
+          "source_path": [
+            176
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 511,
+          "source_path": [
+            511
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        171,
+        506
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 176,
+          "source_path": [
+            176
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 512,
+          "source_path": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        172,
+        505
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        },
+        {
+          "part": "3005.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 511,
+          "source_path": [
+            511
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        172,
+        506
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        },
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 512,
+          "source_path": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        172,
+        560
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 177,
+          "source_path": [
+            177
+          ]
+        },
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 566,
+          "source_path": [
+            566
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        173,
+        560
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3034.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 178,
+          "source_path": [
+            178
+          ]
+        },
+        {
+          "part": "3010.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 566,
+          "source_path": [
+            566
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        390,
+        136
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3622.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 396,
+          "source_path": [
+            396
+          ]
+        },
+        {
+          "part": "3710.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 141,
+          "source_path": [
+            141
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        506,
+        169
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3008.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 512,
+          "source_path": [
+            512
+          ]
+        },
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 174,
+          "source_path": [
+            174
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        136,
+        391
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3710.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 141,
+          "source_path": [
+            141
+          ]
+        },
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 397,
+          "source_path": [
+            397
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        168,
+        446
+      ],
+      "penetration": 0.30000000000001137,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 173,
+          "source_path": [
+            173
+          ]
+        },
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 452,
+          "source_path": [
+            452
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        169,
+        446
+      ],
+      "penetration": 0.25,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 174,
+          "source_path": [
+            174
+          ]
+        },
+        {
+          "part": "3009.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 452,
+          "source_path": [
+            452
+          ]
+        }
+      ]
+    },
+    {
+      "code": "coverage.contacts_skipped",
+      "severity": "warning",
+      "message": "Contacts were not computed. Select a subassembly or request --contacts all; no connectivity conclusion is available.",
+      "line_number": null,
+      "section": null
     },
     {
       "code": "coverage.collision_review",
@@ -76,7 +2385,7 @@
   "geometry": {
     "complete": true,
     "connection_coverage": {
-      "complete": 368,
+      "complete": 659,
       "partial": 1,
       "none": 0
     },
@@ -84,31 +2393,31 @@
     "physical_validity": "not_proven",
     "bounds": {
       "min": [
-        19.7,
+        0.0,
         -127.75,
-        19.683372
+        0.0
       ],
       "max": [
-        1050.30052563,
+        1100.0,
         0.3231199999999994,
-        680.304130047718
+        720.0
       ]
     },
-    "occurrence_count": 369,
+    "occurrence_count": 660,
     "detail": "summary",
     "instance_offset": 0,
     "instances": [],
     "instances_truncated": true,
-    "contacts_checked": true,
-    "contact_count": 758,
+    "contacts_checked": false,
+    "contact_count": null,
     "contacts": [],
-    "contacts_truncated": true,
+    "contacts_truncated": false,
     "confirmed_components": null,
     "optimistic_components": null,
-    "optimistic_component_count": 41,
-    "confirmed_component_count": 227,
-    "components_truncated": true,
-    "overlap_candidate_count": 485,
+    "optimistic_component_count": null,
+    "confirmed_component_count": null,
+    "components_truncated": false,
+    "overlap_candidate_count": 1118,
     "overlaps": [],
     "overlaps_truncated": true,
     "diagnostics": [
@@ -141,6 +2450,1026 @@
         "line_number": null,
         "section": null,
         "instances": [
+          403,
+          106
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 409,
+            "source_path": [
+              409
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 111,
+            "source_path": [
+              111
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          403,
+          107
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 409,
+            "source_path": [
+              409
+            ]
+          },
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 112,
+            "source_path": [
+              112
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          403,
+          125
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 409,
+            "source_path": [
+              409
+            ]
+          },
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 130,
+            "source_path": [
+              130
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          404,
+          124
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 410,
+            "source_path": [
+              410
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 129,
+            "source_path": [
+              129
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          404,
+          125
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 410,
+            "source_path": [
+              410
+            ]
+          },
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 130,
+            "source_path": [
+              130
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          455,
+          106
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 461,
+            "source_path": [
+              461
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 111,
+            "source_path": [
+              111
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          455,
+          112
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 461,
+            "source_path": [
+              461
+            ]
+          },
+          {
+            "part": "3070b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 117,
+            "source_path": [
+              117
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          456,
+          124
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3622.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 462,
+            "source_path": [
+              462
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 129,
+            "source_path": [
+              129
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          456,
+          130
+        ],
+        "penetration": 0.3000000000000007,
+        "sources": [
+          {
+            "part": "3622.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 462,
+            "source_path": [
+              462
+            ]
+          },
+          {
+            "part": "3070b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 135,
+            "source_path": [
+              135
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          107,
+          369
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 112,
+            "source_path": [
+              112
+            ]
+          },
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 375,
+            "source_path": [
+              375
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          369,
+          103
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 375,
+            "source_path": [
+              375
+            ]
+          },
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 108,
+            "source_path": [
+              108
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          369,
+          108
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 375,
+            "source_path": [
+              375
+            ]
+          },
+          {
+            "part": "3021.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 113,
+            "source_path": [
+              113
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          429,
+          79
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 435,
+            "source_path": [
+              435
+            ]
+          },
+          {
+            "part": "3032.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 84,
+            "source_path": [
+              84
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          429,
+          87
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 435,
+            "source_path": [
+              435
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 92,
+            "source_path": [
+              92
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          429,
+          86
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 435,
+            "source_path": [
+              435
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 91,
+            "source_path": [
+              91
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          429,
+          85
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 435,
+            "source_path": [
+              435
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 90,
+            "source_path": [
+              90
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          429,
+          84
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 435,
+            "source_path": [
+              435
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 89,
+            "source_path": [
+              89
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          370,
+          79
+        ],
+        "penetration": 0.2510000000000012,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 376,
+            "source_path": [
+              376
+            ]
+          },
+          {
+            "part": "3032.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 84,
+            "source_path": [
+              84
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          79,
+          430
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3032.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 84,
+            "source_path": [
+              84
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 436,
+            "source_path": [
+              436
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          441,
+          316
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 447,
+            "source_path": [
+              447
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 321,
+            "source_path": [
+              321
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          84,
+          430
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 89,
+            "source_path": [
+              89
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 436,
+            "source_path": [
+              436
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          430,
+          83
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 436,
+            "source_path": [
+              436
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 88,
+            "source_path": [
+              88
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          430,
+          47
+        ],
+        "penetration": 0.24299999999999855,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 436,
+            "source_path": [
+              436
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 52,
+            "source_path": [
+              52
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          430,
+          48
+        ],
+        "penetration": 0.24299999999999855,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 436,
+            "source_path": [
+              436
+            ]
+          },
+          {
+            "part": "3024.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 53,
+            "source_path": [
+              53
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          384,
+          316
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 390,
+            "source_path": [
+              390
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 321,
+            "source_path": [
+              321
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          316,
+          442
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 321,
+            "source_path": [
+              321
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 448,
+            "source_path": [
+              448
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          316,
+          385
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 321,
+            "source_path": [
+              321
+            ]
+          },
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 391,
+            "source_path": [
+              391
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          372,
+          47
+        ],
+        "penetration": 0.24299999999999855,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 378,
+            "source_path": [
+              378
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 52,
+            "source_path": [
+              52
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          372,
+          48
+        ],
+        "penetration": 0.24299999999999855,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 378,
+            "source_path": [
+              378
+            ]
+          },
+          {
+            "part": "3024.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 53,
+            "source_path": [
+              53
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          372,
+          44
+        ],
+        "penetration": 0.2430000000000021,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 378,
+            "source_path": [
+              378
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 49,
+            "source_path": [
+              49
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          546,
+          60
+        ],
+        "penetration": 0.31662799999999436,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 552,
+            "source_path": [
+              552
+            ]
+          },
+          {
+            "part": "3020.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 65,
+            "source_path": [
+              65
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          431,
+          44
+        ],
+        "penetration": 0.2430000000000021,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 437,
+            "source_path": [
+              437
+            ]
+          },
+          {
+            "part": "2431.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 49,
+            "source_path": [
+              49
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          431,
+          60
+        ],
+        "penetration": 0.31641350863429807,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 437,
+            "source_path": [
+              437
+            ]
+          },
+          {
+            "part": "3020.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 65,
+            "source_path": [
+              65
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          60,
+          489
+        ],
+        "penetration": 0.3165575086342969,
+        "sources": [
+          {
+            "part": "3020.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 65,
+            "source_path": [
+              65
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 495,
+            "source_path": [
+              495
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
           224,
           226
         ],
@@ -165,12 +3494,1301 @@
         ]
       },
       {
-        "code": "assembly.disconnected_evidence",
-        "severity": "warning",
-        "message": "Connection analysis finds multiple groups. Investigate floating parts, missing connector metadata, or intentional separate objects.",
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
         "line_number": null,
         "section": null,
-        "component_count": 41
+        "instances": [
+          433,
+          231
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 439,
+            "source_path": [
+              439
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 236,
+            "source_path": [
+              236
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          375,
+          231
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 381,
+            "source_path": [
+              381
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 236,
+            "source_path": [
+              236
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          231,
+          376
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 236,
+            "source_path": [
+              236
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 382,
+            "source_path": [
+              382
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          231,
+          434
+        ],
+        "penetration": 0.29999999999999716,
+        "sources": [
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 236,
+            "source_path": [
+              236
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 440,
+            "source_path": [
+              440
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          559,
+          172
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 565,
+            "source_path": [
+              565
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          559,
+          173
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 565,
+            "source_path": [
+              565
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 178,
+            "source_path": [
+              178
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          420,
+          137
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 426,
+            "source_path": [
+              426
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 142,
+            "source_path": [
+              142
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          420,
+          155
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 426,
+            "source_path": [
+              426
+            ]
+          },
+          {
+            "part": "3022.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 160,
+            "source_path": [
+              160
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          445,
+          170
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 451,
+            "source_path": [
+              451
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 175,
+            "source_path": [
+              175
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          445,
+          171
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 451,
+            "source_path": [
+              451
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 176,
+            "source_path": [
+              176
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          445,
+          168
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 451,
+            "source_path": [
+              451
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 173,
+            "source_path": [
+              173
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          445,
+          169
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 451,
+            "source_path": [
+              451
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 174,
+            "source_path": [
+              174
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          475,
+          137
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 481,
+            "source_path": [
+              481
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 142,
+            "source_path": [
+              142
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          475,
+          147
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 481,
+            "source_path": [
+              481
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 152,
+            "source_path": [
+              152
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          475,
+          170
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 481,
+            "source_path": [
+              481
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 175,
+            "source_path": [
+              175
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          475,
+          171
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 481,
+            "source_path": [
+              481
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 176,
+            "source_path": [
+              176
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          476,
+          137
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 482,
+            "source_path": [
+              482
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 142,
+            "source_path": [
+              142
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          476,
+          147
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 482,
+            "source_path": [
+              482
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 152,
+            "source_path": [
+              152
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          476,
+          158
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 482,
+            "source_path": [
+              482
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 163,
+            "source_path": [
+              163
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          476,
+          159
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 482,
+            "source_path": [
+              482
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 164,
+            "source_path": [
+              164
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          147
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3004.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 152,
+            "source_path": [
+              152
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          149
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 154,
+            "source_path": [
+              154
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          151
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3069b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 156,
+            "source_path": [
+              156
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          159
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 164,
+            "source_path": [
+              164
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          162
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 167,
+            "source_path": [
+              167
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          171
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 176,
+            "source_path": [
+              176
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          534,
+          172
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 540,
+            "source_path": [
+              540
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          592,
+          151
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 598,
+            "source_path": [
+              598
+            ]
+          },
+          {
+            "part": "3069b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 156,
+            "source_path": [
+              156
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          592,
+          162
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 598,
+            "source_path": [
+              598
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 167,
+            "source_path": [
+              167
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          592,
+          163
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 598,
+            "source_path": [
+              598
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 168,
+            "source_path": [
+              168
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          592,
+          172
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 598,
+            "source_path": [
+              598
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          592,
+          173
+        ],
+        "penetration": 0.10000000000002274,
+        "sources": [
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 598,
+            "source_path": [
+              598
+            ]
+          },
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 178,
+            "source_path": [
+              178
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          171,
+          505
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 176,
+            "source_path": [
+              176
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 511,
+            "source_path": [
+              511
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          171,
+          506
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 176,
+            "source_path": [
+              176
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 512,
+            "source_path": [
+              512
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          172,
+          505
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          },
+          {
+            "part": "3005.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 511,
+            "source_path": [
+              511
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          172,
+          506
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          },
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 512,
+            "source_path": [
+              512
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          172,
+          560
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 177,
+            "source_path": [
+              177
+            ]
+          },
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 566,
+            "source_path": [
+              566
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          173,
+          560
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3034.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 178,
+            "source_path": [
+              178
+            ]
+          },
+          {
+            "part": "3010.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 566,
+            "source_path": [
+              566
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          390,
+          136
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3622.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 396,
+            "source_path": [
+              396
+            ]
+          },
+          {
+            "part": "3710.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 141,
+            "source_path": [
+              141
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          506,
+          169
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3008.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 512,
+            "source_path": [
+              512
+            ]
+          },
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 174,
+            "source_path": [
+              174
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          136,
+          391
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3710.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 141,
+            "source_path": [
+              141
+            ]
+          },
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 397,
+            "source_path": [
+              397
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          168,
+          446
+        ],
+        "penetration": 0.30000000000001137,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 173,
+            "source_path": [
+              173
+            ]
+          },
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 452,
+            "source_path": [
+              452
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          169,
+          446
+        ],
+        "penetration": 0.25,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 174,
+            "source_path": [
+              174
+            ]
+          },
+          {
+            "part": "3009.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 452,
+            "source_path": [
+              452
+            ]
+          }
+        ]
+      },
+      {
+        "code": "coverage.contacts_skipped",
+        "severity": "warning",
+        "message": "Contacts were not computed. Select a subassembly or request --contacts all; no connectivity conclusion is available.",
+        "line_number": null,
+        "section": null
       },
       {
         "code": "coverage.collision_review",

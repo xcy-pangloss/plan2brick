@@ -96,9 +96,10 @@ function renderCandidateChrome() {
   const c = plan.candidates[state.cand];
   const s = c.stats;
 
+  const partsTitle = `${fmt(s.furnitureParts || 0)} furniture + ${fmt(s.wallParts || 0)} wall bricks`;
   $('#stats').innerHTML = `
     <div class="stat"><b>${esc(s.coverage)}</b><span>Coverage</span></div>
-    <div class="stat"><b>${fmt(s.parts)}</b><span>Parts</span></div>
+    <div class="stat" title="${esc(partsTitle)}"><b>${fmt(s.parts)}</b><span>Parts</span></div>
     <div class="stat"><b>${esc(s.overlaps)}</b><span>Overlaps</span></div>
     <div class="stat"><b>${esc(s.rooms)}</b><span>Rooms</span></div>
     <div class="stat pass" title="LDraw validation + independent overlap recomputation"><b>${esc(gateLabel(s.gate))}</b><span>Gate</span></div>`;
@@ -106,7 +107,7 @@ function renderCandidateChrome() {
   const dl = c.downloads;
   const downloads = [
     ['Scene .mpd', dl.mpd, true],
-    ['+Walls .mpd', dl.walls_mpd, true],
+    ['Placements .json', dl.placements, true],
     ['BOM .csv', dl.bom, true],
     ['Evaluate', dl.evaluate, false],
     ['Validate', dl.validate, false],
@@ -118,7 +119,7 @@ function renderCandidateChrome() {
   const views = [['home', '3/4 view'], ['top', 'Top view'], ['front', 'Front view']];
   $('#renderStrip').innerHTML = views.map(([key, label]) => `
     <figure class="render-card" data-src="${esc(c.renders[key])}"
-      data-cap="${esc(`${plan.id} · candidate ${c.label} · ${label} (room overlay)`)}">
+      data-cap="${esc(`${plan.id} · candidate ${c.label} · ${label} (LEGO walls)`)}">
       <img src="${esc(c.renders[key])}" alt="${esc(`${plan.id} candidate ${c.label} ${label} 3D view`)}" loading="lazy">
       <figcaption><b>${esc(label)}</b><span>${esc(c.label)} · ${fmt(s.parts)} parts</span></figcaption>
     </figure>`).join('');
@@ -573,48 +574,6 @@ function getPartMaterial(code) {
   return mat;
 }
 
-function mergeIntervals(list, tol = 2) {
-  const sorted = list.slice().sort((a, b) => a[0] - b[0]);
-  const out = [];
-  sorted.forEach(([a, b]) => {
-    if (out.length && a <= out[out.length - 1][1] + tol) {
-      out[out.length - 1][1] = Math.max(out[out.length - 1][1], b);
-    } else {
-      out.push([a, b]);
-    }
-  });
-  return out;
-}
-
-function wallSegments(rooms) {
-  const horiz = new Map();
-  const vert = new Map();
-  const add = (map, at, a, b) => {
-    const key = Math.round(at * 10) / 10;
-    if (!map.has(key)) map.set(key, []);
-    map.get(key).push([a, b]);
-  };
-  rooms.forEach((room) => {
-    const [x0, z0, x1, z1] = room.r;
-    add(horiz, z0, x0, x1);
-    add(horiz, z1, x0, x1);
-    add(vert, x0, z0, z1);
-    add(vert, x1, z0, z1);
-  });
-  const segments = [];
-  Array.from(horiz.entries()).sort((a, b) => a[0] - b[0]).forEach(([at, intervals]) => {
-    mergeIntervals(intervals).forEach(([a, b]) => {
-      if (b - a > 1) segments.push({ axis: 'h', at, a, b });
-    });
-  });
-  Array.from(vert.entries()).sort((a, b) => a[0] - b[0]).forEach(([at, intervals]) => {
-    mergeIntervals(intervals).forEach(([a, b]) => {
-      if (b - a > 1) segments.push({ axis: 'v', at, a, b });
-    });
-  });
-  return segments;
-}
-
 function roomBounds(rooms) {
   let x0 = Infinity;
   let z0 = Infinity;
@@ -651,14 +610,12 @@ function buildScene(cand) {
     root,
     labels: [],
     wallMeshes: [],
-    wallEdges: [],
-    wallMat: null,
-    wallEdgeMat: null,
     wallGroup: null,
+    ghostMat: null,
     partMeshes: [],
     fitPoints: [],
     disposables: [],
-    center: new THREE.Vector3(bounds.cx, 70, -bounds.cz),
+    center: new THREE.Vector3(bounds.cx, 60, -bounds.cz),
   };
 
   // Room floors + thin outlines.
@@ -694,91 +651,67 @@ function buildScene(cand) {
     cur.disposables.push(lineGeo, lineMat);
   });
 
-  // Low walls, merged per plan coordinate so shared room edges are one wall.
-  // Ghost mode is deliberately faint: it marks the layout without hiding furniture.
-  const wallMat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#8d98a6'),
-    roughness: 0.82,
+  // Walls are real LEGO bricks from the scene MPD (5 courses, 120 LDU high).
+  // Each wall instance keeps its solid material; Ghost mode swaps in a shared
+  // translucent material without touching the material library.
+  const WALL_H = 120;
+  const ghostMat = new THREE.MeshStandardMaterial({
+    color: new THREE.Color('#aeb6c1'),
+    roughness: 0.9,
     metalness: 0,
     transparent: true,
-    opacity: 0.085,
+    opacity: 0.16,
     depthWrite: false,
     side: THREE.DoubleSide,
   });
-  const edgeMat = new THREE.LineBasicMaterial({
-    color: 0x6f7c8c, transparent: true, opacity: 0.34,
-  });
-  cur.wallMat = wallMat;
-  cur.wallEdgeMat = edgeMat;
-  cur.disposables.push(wallMat, edgeMat);
+  cur.ghostMat = ghostMat;
   const wallGroup = new THREE.Group();
   cur.wallGroup = wallGroup;
   root.add(wallGroup);
-  const WALL_H = 140;
-  const WALL_T = 8;
-  wallSegments(cand.rooms).forEach((seg) => {
-    const len = seg.b - seg.a;
-    const geo = seg.axis === 'h'
-      ? new THREE.BoxGeometry(len, WALL_H, WALL_T)
-      : new THREE.BoxGeometry(WALL_T, WALL_H, len);
-    const mesh = new THREE.Mesh(geo, wallMat);
-    if (seg.axis === 'h') mesh.position.set((seg.a + seg.b) / 2, -WALL_H / 2, seg.at);
-    else mesh.position.set(seg.at, -WALL_H / 2, (seg.a + seg.b) / 2);
-    mesh.castShadow = false;
-    mesh.receiveShadow = false;
-    wallGroup.add(mesh);
-    cur.wallMeshes.push(mesh);
-    cur.disposables.push(geo);
-
-    // Wall-top outlines make the plan readable even with the translucent faces.
-    const edgeGeo = new THREE.EdgesGeometry(geo);
-    const edge = new THREE.LineSegments(edgeGeo, edgeMat);
-    edge.position.copy(mesh.position);
-    wallGroup.add(edge);
-    cur.wallEdges.push(edge);
-    cur.disposables.push(edgeGeo);
-  });
 
   // Instance the parts: one draw call per (part, primitive, resolved colour).
-  const groups = new Map();
-  cand.placements.forEach((pl) => {
-    const [partIndex, color, x, y, z, ...m] = pl;
-    const partName = DATA.parts[partIndex];
-    const prims = partLib.get(partName);
-    if (!prims) return;
-    const matrix = new THREE.Matrix4().set(
-      m[0], m[1], m[2], x,
-      m[3], m[4], m[5], y,
-      m[6], m[7], m[8], z,
-      0, 0, 0, 1,
-    );
-    prims.forEach((prim, pi) => {
-      const resolved = prim.colorCode === 16 ? color : prim.colorCode;
-      const key = `${partIndex}|${resolved}|${pi}`;
-      let group = groups.get(key);
-      if (!group) {
-        group = { geometry: prim.geometry, color: resolved, matrices: [] };
-        groups.set(key, group);
-      }
-      group.matrices.push(matrix);
+  const addInstances = (records, target, meshList) => {
+    const groups = new Map();
+    records.forEach((pl) => {
+      const [partIndex, color, x, y, z, ...m] = pl;
+      const partName = DATA.parts[partIndex];
+      const prims = partLib.get(partName);
+      if (!prims) return;
+      const matrix = new THREE.Matrix4().set(
+        m[0], m[1], m[2], x,
+        m[3], m[4], m[5], y,
+        m[6], m[7], m[8], z,
+        0, 0, 0, 1,
+      );
+      prims.forEach((prim, pi) => {
+        const resolved = prim.colorCode === 16 ? color : prim.colorCode;
+        const key = `${partIndex}|${resolved}|${pi}`;
+        let group = groups.get(key);
+        if (!group) {
+          group = { geometry: prim.geometry, color: resolved, matrices: [] };
+          groups.set(key, group);
+        }
+        group.matrices.push(matrix);
+      });
     });
-  });
 
-  groups.forEach((group) => {
-    const mesh = new THREE.InstancedMesh(
-      group.geometry,
-      getPartMaterial(group.color),
-      group.matrices.length,
-    );
-    group.matrices.forEach((matrix, i) => mesh.setMatrixAt(i, matrix));
-    mesh.instanceMatrix.setUsage(THREE.StaticDrawUsage);
-    mesh.instanceMatrix.needsUpdate = true;
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
-    mesh.frustumCulled = false;
-    root.add(mesh);
-    cur.partMeshes.push(mesh);
-  });
+    groups.forEach((group) => {
+      const solid = getPartMaterial(group.color);
+      const mesh = new THREE.InstancedMesh(group.geometry, solid, group.matrices.length);
+      group.matrices.forEach((matrix, i) => mesh.setMatrixAt(i, matrix));
+      mesh.instanceMatrix.setUsage(THREE.StaticDrawUsage);
+      mesh.instanceMatrix.needsUpdate = true;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      mesh.frustumCulled = false;
+      mesh.userData.solidMaterial = solid;
+      target.add(mesh);
+      meshList.push(mesh);
+    });
+  };
+
+  addInstances(cand.placements, root, cur.partMeshes);
+  addInstances(cand.wallPlacements || [], wallGroup, cur.wallMeshes);
 
   root.updateMatrixWorld(true);
 
@@ -787,7 +720,9 @@ function buildScene(cand) {
   cand.rooms.forEach((room) => {
     const [x0, z0, x1, z1] = room.r;
     if (x1 - x0 < 1 || z1 - z0 < 1) return;
-    [[x0, z0], [x1, z0], [x1, z1], [x0, z1]].forEach(([x, z]) => {
+    const pad = 20;  // one stud of wall thickness on the outside of the zone
+    [[x0 - pad, z0 - pad], [x1 + pad, z0 - pad],
+      [x1 + pad, z1 + pad], [x0 - pad, z1 + pad]].forEach(([x, z]) => {
       [0, -WALL_H].forEach((y) => {
         cur.fitPoints.push(new THREE.Vector3(x, y, z).applyMatrix4(root.matrixWorld));
       });
@@ -834,6 +769,8 @@ function clearScene() {
   if (!v || !v.current) return;
   const cur = v.current;
   cur.partMeshes.forEach((mesh) => mesh.dispose());
+  cur.wallMeshes.forEach((mesh) => mesh.dispose());
+  if (cur.ghostMat) cur.ghostMat.dispose();
   cur.disposables.forEach((d) => { if (d && d.dispose) d.dispose(); });
   cur.labels.forEach((label) => label.el.remove());
   v.scene.remove(cur.root);
@@ -844,20 +781,11 @@ function applyWallMode() {
   const v = viewer;
   if (!v || !v.current) return;
   const cur = v.current;
-  const solid = state.walls === 'solid';
-  cur.wallGroup.visible = state.walls !== 'off';
-  const mat = cur.wallMat;
-  mat.transparent = !solid;
-  mat.opacity = solid ? 1 : 0.085;
-  mat.depthWrite = solid;
-  mat.roughness = solid ? 0.94 : 0.82;
-  mat.color.set(solid ? '#eee8de' : '#8d98a6');
-  mat.needsUpdate = true;
-  const edge = cur.wallEdgeMat;
-  edge.opacity = solid ? 0.22 : 0.34;
-  edge.color.set(solid ? '#b9ae9d' : '#6f7c8c');
-  edge.needsUpdate = true;
+  const mode = state.walls;
+  const solid = mode === 'solid';
+  cur.wallGroup.visible = mode !== 'off';
   cur.wallMeshes.forEach((mesh) => {
+    mesh.material = solid ? mesh.userData.solidMaterial : cur.ghostMat;
     mesh.castShadow = solid;
     mesh.receiveShadow = solid;
   });
