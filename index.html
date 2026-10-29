@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan2Brick · From a Floor Plan and One Sentence to Buildable LEGO Interiors</title>
+<meta name="description" content="Plan2Brick turns a floor plan and one sentence of natural-language brief into validated, buildable LEGO interior scenes. Explore three real floor plans and nine candidate layouts in interactive 3D.">
+<meta property="og:title" content="Plan2Brick · Floor plan + one sentence → buildable LEGO interiors">
+<meta property="og:description" content="An end-to-end system for floor-plan-conditioned LEGO scene generation. 9/9 candidate scenes validated, 236/264 object requests, 4,378 parts, zero cross-room overlaps.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='20' width='52' height='34' rx='6' fill='%23b23a2e'/%3E%3Crect x='14' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3Crect x='38' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#viewer">Skip to the 3D viewer</a>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Plan2Brick home">
+    <span class="brick" aria-hidden="true"><i></i><i></i></span>
+    <span>Plan2Brick</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="#overview">Overview</a>
+    <a href="#viewer">3D demo</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#library">Library</a>
+    <a href="#limitations">Limitations</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero wrap">
+  <p class="eyebrow">CSCI4998 Final-Year Project · 2026</p>
+  <h1>Plan2Brick</h1>
+  <p class="subtitle">From a floor plan and one sentence<br class="wide"> to buildable LEGO interiors</p>
+  <p class="authors">Xiao Chuanyi</p>
+  <p class="affil">Department of Computer Science and Engineering<br>The Chinese University of Hong Kong</p>
+  <p class="supervisor">Supervised by Prof. Philip Fu</p>
+  <div class="links">
+    <a class="pill primary" href="#viewer"><span class="dot"></span>Explore in 3D</a>
+    <a class="pill" href="assets/slides/slides.pdf">Slides (PDF)</a>
+    <a class="pill" href="#results">Results</a>
+    <a class="pill" href="#citation">BibTeX</a>
+  </div>
+
+  <figure class="teaser">
+    <img src="assets/hero.jpg" alt="The R1 three-bedroom apartment reconstructed in LEGO, seen in a three-quarter view with translucent walls and labelled rooms.">
+    <figcaption><b>R1 · three-bedroom apartment.</b> 666 parts across 11 rooms from the brief “Use the dining room as a study.” The scene below is live: orbit, switch candidates, and toggle the wall overlay.</figcaption>
+  </figure>
+</section>
+
+<section class="abstract wrap reveal" id="overview">
+  <div class="abstract-card">
+    <h2>Abstract</h2>
+    <p class="lead">We present <strong>Plan2Brick</strong>, a system that turns a floor-plan image and one sentence of natural-language brief into a set of buildable LEGO interior scenes. A vision model reads rooms and dimensions into a schema-checked scene IR; a curated <strong>42-object / 16-category</strong> library supplies the geometry; a deterministic solver selects parts, packs furniture against wall bands, and removes both intra-room and cross-room collisions; the LDraw toolchain validates and renders every candidate.</p>
+    <p>On three real floor plans, all <strong>nine candidate scenes</strong> pass validation with <strong>zero cross-room overlaps</strong>: <strong>236/264</strong> object requests are placed, using <strong>4,378</strong> LEGO parts in total. This page lets you inspect every candidate in 3D, toggle a wall-and-floor overlay to read the room layout, compare the three topology candidates, and download the <code>.mpd</code> scene and its BOM.</p>
+  </div>
+</section>
+
+<section class="showcase wrap" id="viewer">
+  <div class="section-head reveal">
+    <div>
+      <span class="num">01</span>
+      <h2>Input → three candidate interiors</h2>
+    </div>
+    <p>Pick a real floor plan and a candidate. Drag to orbit, scroll to zoom, and switch the wall overlay to read the plan.</p>
+  </div>
+
+  <div class="plan-tabs reveal" id="planTabs" role="tablist" aria-label="Floor plans"></div>
+
+  <div class="showcase-grid reveal">
+    <aside class="input-card" aria-label="Input">
+      <div class="card-label"><span>Input</span><span class="tag">floor plan + brief</span></div>
+      <button class="plan-frame" id="planFrame" type="button" title="Open the floor plan">
+        <img id="inputPlan" alt="Input floor plan">
+        <span class="plan-badge" id="planBadge">R1</span>
+      </button>
+      <blockquote class="brief" id="inputBrief"></blockquote>
+      <dl class="input-meta" id="inputMeta"></dl>
+      <div class="legend-head">Room program <span id="legendCount"></span></div>
+      <div class="legend" id="roomLegend"></div>
+    </aside>
+
+    <div class="viewer-card" id="viewerCard">
+      <div class="viewer-top">
+        <div class="cand-tabs" id="candTabs" role="tablist" aria-label="Candidates"></div>
+        <div class="viewer-actions">
+          <div class="seg" id="viewPresets" role="group" aria-label="Camera">
+            <button data-view="home" class="on">3/4</button>
+            <button data-view="top">Top</button>
+            <button data-view="front">Front</button>
+          </div>
+          <div class="seg" id="wallToggle" role="group" aria-label="Walls">
+            <button data-walls="off">Off</button>
+            <button data-walls="ghost" class="on">Ghost</button>
+            <button data-walls="solid">Solid</button>
+          </div>
+          <button class="icon-btn" id="autoRotate" title="Pause auto-rotate" aria-label="Toggle auto-rotate" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L8 6l4 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+          </button>
+          <button class="icon-btn" id="fullscreen" title="Fullscreen" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zm11-5h5v5h-2V6h-3zM4 15h2v3h3v2H4zm14 0h2v5h-5v-2h3z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <canvas id="canvas"></canvas>
+        <div class="room-labels" id="roomLabels" aria-hidden="true"></div>
+        <div class="stage-hint" id="stageHint">Drag to orbit · scroll to zoom</div>
+        <div class="loader" id="loader">
+          <div class="spinner" aria-hidden="true"></div>
+          <p id="loaderText">Preparing parts…</p>
+          <div class="progress"><i id="loaderBar"></i></div>
+        </div>
+        <div class="stage-note">Walls &amp; floors are a layout overlay, not BOM parts.</div>
+      </div>
+
+      <div class="viewer-foot">
+        <div class="stats" id="stats"></div>
+        <div class="downloads" id="downloads"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="render-strip reveal" id="renderStrip"></div>
+  <p class="fineprint reveal">The render strip is captured from the live 3D view, reconstructed from the same <code>.mpd</code> placements. The wall/floor overlay is derived from the IR room zones and is excluded from the part count and BOM.</p>
+</section>
+
+<section class="method wrap" id="method">
+  <div class="section-head reveal">
+    <div><span class="num">02</span><h2>How it works</h2></div>
+    <p>One model call reads the plan. Everything after the scene IR is deterministic and free of tokens.</p>
+  </div>
+
+  <div class="pipeline reveal">
+    <article class="step">
+      <span class="step-num">1</span>
+      <h3>Read the plan</h3>
+      <p>A floor plan or preset plus a one-sentence brief becomes a schema-checked scene IR: rooms, metric dimensions, object categories and counts, placement hints and topology.</p>
+      <span class="chip">vision model · cached in this demo</span>
+    </article>
+    <article class="step">
+      <span class="step-num">2</span>
+      <h3>Select from the library</h3>
+      <p>A curated library of <strong>42 objects across 16 categories</strong>, each with captions, specs and three-view QC. Text and shape queries retrieve a shortlist; a fit-aware scorer keeps only items that fit the room.</p>
+      <span class="chip">text + shape retrieval</span>
+    </article>
+    <article class="step">
+      <span class="step-num">3</span>
+      <h3>Solve the layout</h3>
+      <p>A deterministic solver assigns furniture to wall-band slots, checks depth and capacity per room, then runs a global exclusion pass. Three candidate topologies are generated for comparison.</p>
+      <span class="chip">zero tokens · zero collisions</span>
+    </article>
+    <article class="step">
+      <span class="step-num">4</span>
+      <h3>Validate &amp; render</h3>
+      <p>Every candidate goes through LDraw validation, an independent overlap recomputation, coverage accounting, three QC views and a BOM. The gate is green only when all checks pass.</p>
+      <span class="chip">9/9 candidates green</span>
+    </article>
+  </div>
+
+  <div class="scope reveal">
+    <div>
+      <span class="mini-label">Our layer</span>
+      <h3>Floor plan → furnished, validated scene</h3>
+      <p>Scene IR, brief parsing, library curation, retrieval, deterministic assembly, multi-candidate generation, single-object editing and evaluation.</p>
+    </div>
+    <div>
+      <span class="mini-label">Downstream engine</span>
+      <h3>LDraw compiler, validator and renderer</h3>
+      <p>The LDraw toolchain is an attributed reimplementation of <a href="https://github.com/anteloc/ldraw-nova" target="_blank" rel="noopener">ldraw-nova</a> (AGPL-3.0). BrickNet supplies object models; LDraw supplies part geometry; LeoCAD renders and cross-checks BOMs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="results wrap" id="results">
+  <div class="section-head reveal">
+    <div><span class="num">03</span><h2>Results</h2></div>
+    <p>Three real plans, three candidates each, one validation gate.</p>
+  </div>
+
+  <div class="kpis reveal">
+    <div class="kpi"><span class="kpi-n">9/9</span><span class="kpi-l">candidate scenes green</span></div>
+    <div class="kpi"><span class="kpi-n">236<small>/264</small></span><span class="kpi-l">object requests placed (89.4%)</span></div>
+    <div class="kpi"><span class="kpi-n">4,378</span><span class="kpi-l">LEGO parts across the nine scenes</span></div>
+    <div class="kpi"><span class="kpi-n">0</span><span class="kpi-l">cross-room overlaps · 0 real validate errors</span></div>
+  </div>
+
+  <div class="table-wrap reveal">
+    <table class="results-table">
+      <thead>
+        <tr><th>Plan</th><th>Brief</th><th>Cand.</th><th>Rooms</th><th>Coverage</th><th>Parts</th><th>Overlaps</th><th>Gate</th><th></th></tr>
+      </thead>
+      <tbody id="resultsBody"></tbody>
+    </table>
+  </div>
+  <p class="fineprint reveal">Coverage misses are wall-band capacity drops, not validation failures. The solver reports both coverage and validity instead of treating 89.4% as 100%. ε counts sub-LDU float-noise notes ignored by the gate (threshold 1e-3 LDU); real modelling errors are ≥1 LDU.</p>
+
+  <div class="evidence-grid reveal">
+    <article class="evidence">
+      <span class="mini-label">Floor-plan suite</span>
+      <h3>8/8 · 6/6 · 9/9 rooms</h3>
+      <p>Three synthetic plans A/B/C, dimension MAE <strong>0.00 m</strong>. Real plans R1–R3 also pass with image and text inputs (<strong>6/6 green</strong>), separating readout error from solver error.</p>
+    </article>
+    <article class="evidence">
+      <span class="mini-label">Controlled study · Run 7</span>
+      <h3>14 units, no semantic gap</h3>
+      <p>Two model tiers × with/without the library + IR scaffold × image/text × three complexities. The scaffold cuts model-side cost <strong>3.5–6.5×</strong> and removes tool-level build failures (<strong>10 → 0</strong>).</p>
+    </article>
+    <article class="evidence">
+      <span class="mini-label">Library check</span>
+      <h3>42/42 across the board</h3>
+      <p>All 42 items validate, all have QC renders, text self-retrieval is 42/42, shape self-retrieval is 42/42 (MRR 1.0), and 56/56 synonym queries return the right item at top-1.</p>
+    </article>
+  </div>
+</section>
+
+<section class="library wrap" id="library">
+  <div class="section-head reveal">
+    <div><span class="num">04</span><h2>Object library</h2></div>
+    <p>42 items · 16 categories, curated from BrickNet, then validated and QC-rendered.</p>
+  </div>
+  <div class="library-grid reveal" id="libraryGrid"></div>
+  <p class="fineprint reveal">Every scene is assembled from this closed library. Category tokens keep the LLM's choices checkable; retrieval and geometry remain deterministic. Library thumbnails are LeoCAD QC renders.</p>
+</section>
+
+<section class="limits wrap" id="limitations">
+  <div class="section-head reveal">
+    <div><span class="num">05</span><h2>Limitations &amp; honest boundaries</h2></div>
+    <p>What this page does and does not claim.</p>
+  </div>
+  <div class="limit-grid reveal">
+    <article class="limit">
+      <h3>Image → IR is cached here</h3>
+      <p>The live demo reads a verified M2 vision cache; the current backend is text-only. A live, vision-capable model is the next comparison arm, not a claim we make on this page.</p>
+    </article>
+    <article class="limit">
+      <h3>Candidates are alternatives, not reconstructions</h3>
+      <p>The three candidates preserve the room program and dimensions but explore different adjacencies. They are design alternatives for comparison, not a metric reconstruction of the input plan.</p>
+    </article>
+    <article class="limit">
+      <h3>Walls are a viewer overlay</h3>
+      <p>The wall and floor geometry is generated from the IR room zones so the layout is legible. It is not a stack of LEGO bricks, is not counted in the 4,378 parts, and is excluded from the BOM.</p>
+    </article>
+    <article class="limit">
+      <h3>Validated, not physically proven</h3>
+      <p>LDraw validation, independent overlap checks, BOM and LeoCAD renders pass. <code>physical_validity</code> remains <strong>not_proven</strong> — no clutch-strength or full physics simulation is claimed.</p>
+    </article>
+  </div>
+</section>
+
+<section class="citation wrap" id="citation">
+  <div class="section-head reveal">
+    <div><span class="num">06</span><h2>Citation</h2></div>
+    <p>If you reference this project page.</p>
+  </div>
+  <div class="bibtex reveal">
+    <button class="copy" id="copyBib" type="button">Copy</button>
+    <pre id="bibtex">@misc{xiao2026plan2brick,
+  title  = {Plan2Brick: From a Floor Plan and One Sentence
+            to Buildable LEGO Interiors},
+  author = {Xiao, Chuanyi},
+  year   = {2026},
+  note   = {CSCI4998 Final-Year Project,
+            The Chinese University of Hong Kong},
+  url    = {https://xcy-pangloss.github.io/plan2brick/}
+}</pre>
+  </div>
+  <p class="fineprint reveal">Project page built with three.js. Part geometry from the LDraw library via BrickNet GLBs. LDraw toolchain and LeoCAD for validation and renders. ldraw-nova is an AGPL-3.0 upstream; our LDraw layer is an attributed reimplementation.</p>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Plan2Brick · CSCI4998 Final-Year Project · 2026</span>
+    <span>Xiao Chuanyi · The Chinese University of Hong Kong</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script src="./data/scenes.js"></script>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

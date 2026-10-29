@@ -1,0 +1,247 @@
+{
+  "file": "lego-nova\\out\\plan2brick\\R1\\scenes\\floorplan_R1_plan1\\floorplan_R1_plan1.mpd",
+  "section": null,
+  "profile": "assembly",
+  "checks_passed": false,
+  "physical_validity": "not_proven",
+  "diagnostics": [
+    {
+      "code": "connection.invalid_transform",
+      "message": "connection feature 'studO@L9:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:9 rejected under invalid scale or reflection",
+      "severity": "warning",
+      "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+      "section": null,
+      "line_number": 9,
+      "offending_value": "studO@L9:I0",
+      "suggestions": [],
+      "cause": null
+    },
+    {
+      "code": "connection.invalid_transform",
+      "message": "connection feature 'studO@L10:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:10 rejected under invalid scale or reflection",
+      "severity": "warning",
+      "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+      "section": null,
+      "line_number": 10,
+      "offending_value": "studO@L10:I0",
+      "suggestions": [],
+      "cause": null
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        373,
+        375
+      ],
+      "penetration": 3.8630710775144905e-05,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R1_plan1.ldr",
+          "line_number": 378,
+          "source_path": [
+            378
+          ]
+        },
+        {
+          "part": "3068b.dat",
+          "section": "floorplan_R1_plan1.ldr",
+          "line_number": 380,
+          "source_path": [
+            380
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        412,
+        414
+      ],
+      "penetration": 3.8630710775144905e-05,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R1_plan1.ldr",
+          "line_number": 417,
+          "source_path": [
+            417
+          ]
+        },
+        {
+          "part": "3068b.dat",
+          "section": "floorplan_R1_plan1.ldr",
+          "line_number": 419,
+          "source_path": [
+            419
+          ]
+        }
+      ]
+    },
+    {
+      "code": "coverage.contacts_skipped",
+      "severity": "warning",
+      "message": "Contacts were not computed. Select a subassembly or request --contacts all; no connectivity conclusion is available.",
+      "line_number": null,
+      "section": null
+    },
+    {
+      "code": "coverage.collision_review",
+      "severity": "warning",
+      "message": "Some parts lack rectangular body checks; oriented bounds refine candidates, while remaining overlaps require material review.",
+      "line_number": null,
+      "section": null
+    }
+  ],
+  "geometry": {
+    "complete": true,
+    "connection_coverage": {
+      "complete": 673,
+      "partial": 2,
+      "none": 0
+    },
+    "collision_method": "AABB broad phase, oriented bounds separation, curated rectangular body SAT",
+    "physical_validity": "not_proven",
+    "bounds": {
+      "min": [
+        19.69847437,
+        -187.75,
+        19.69999
+      ],
+      "max": [
+        1030.3,
+        0.3231199999999994,
+        1291.11956
+      ]
+    },
+    "occurrence_count": 675,
+    "detail": "summary",
+    "instance_offset": 0,
+    "instances": [],
+    "instances_truncated": true,
+    "contacts_checked": false,
+    "contact_count": null,
+    "contacts": [],
+    "contacts_truncated": false,
+    "confirmed_components": null,
+    "optimistic_components": null,
+    "optimistic_component_count": null,
+    "confirmed_component_count": null,
+    "components_truncated": false,
+    "overlap_candidate_count": 925,
+    "overlaps": [],
+    "overlaps_truncated": true,
+    "diagnostics": [
+      {
+        "code": "connection.invalid_transform",
+        "message": "connection feature 'studO@L9:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:9 rejected under invalid scale or reflection",
+        "severity": "warning",
+        "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+        "section": null,
+        "line_number": 9,
+        "offending_value": "studO@L9:I0",
+        "suggestions": [],
+        "cause": null
+      },
+      {
+        "code": "connection.invalid_transform",
+        "message": "connection feature 'studO@L10:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:10 rejected under invalid scale or reflection",
+        "severity": "warning",
+        "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+        "section": null,
+        "line_number": 10,
+        "offending_value": "studO@L10:I0",
+        "suggestions": [],
+        "cause": null
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          373,
+          375
+        ],
+        "penetration": 3.8630710775144905e-05,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R1_plan1.ldr",
+            "line_number": 378,
+            "source_path": [
+              378
+            ]
+          },
+          {
+            "part": "3068b.dat",
+            "section": "floorplan_R1_plan1.ldr",
+            "line_number": 380,
+            "source_path": [
+              380
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          412,
+          414
+        ],
+        "penetration": 3.8630710775144905e-05,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R1_plan1.ldr",
+            "line_number": 417,
+            "source_path": [
+              417
+            ]
+          },
+          {
+            "part": "3068b.dat",
+            "section": "floorplan_R1_plan1.ldr",
+            "line_number": 419,
+            "source_path": [
+              419
+            ]
+          }
+        ]
+      },
+      {
+        "code": "coverage.contacts_skipped",
+        "severity": "warning",
+        "message": "Contacts were not computed. Select a subassembly or request --contacts all; no connectivity conclusion is available.",
+        "line_number": null,
+        "section": null
+      },
+      {
+        "code": "coverage.collision_review",
+        "severity": "warning",
+        "message": "Some parts lack rectangular body checks; oriented bounds refine candidates, while remaining overlaps require material review.",
+        "line_number": null,
+        "section": null
+      }
+    ],
+    "limitations": [
+      "AABB candidates do not prove collisions; stud/socket bounding boxes normally overlap.",
+      "Connector matches, including 'confirmed', are computational evidence, not buildability certification.",
+      "No material intersection, clutch strength, stability, legal connection stress, or real colour availability proof."
+    ]
+  }
+}

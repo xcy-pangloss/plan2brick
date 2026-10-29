@@ -1,0 +1,189 @@
+{
+  "file": "lego-nova\\out\\plan2brick\\R3\\scenes\\floorplan_R3_plan2\\floorplan_R3_plan2.mpd",
+  "section": null,
+  "profile": "assembly",
+  "checks_passed": false,
+  "physical_validity": "not_proven",
+  "diagnostics": [
+    {
+      "code": "connection.invalid_transform",
+      "message": "connection feature 'studO@L9:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:9 rejected under invalid scale or reflection",
+      "severity": "warning",
+      "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+      "section": null,
+      "line_number": 9,
+      "offending_value": "studO@L9:I0",
+      "suggestions": [],
+      "cause": null
+    },
+    {
+      "code": "connection.invalid_transform",
+      "message": "connection feature 'studO@L10:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:10 rejected under invalid scale or reflection",
+      "severity": "warning",
+      "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+      "section": null,
+      "line_number": 10,
+      "offending_value": "studO@L10:I0",
+      "suggestions": [],
+      "cause": null
+    },
+    {
+      "code": "assembly.body_overlap",
+      "severity": "error",
+      "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+      "line_number": null,
+      "section": null,
+      "instances": [
+        224,
+        226
+      ],
+      "penetration": 3.8630710775144905e-05,
+      "sources": [
+        {
+          "part": "3023b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 229,
+          "source_path": [
+            229
+          ]
+        },
+        {
+          "part": "3068b.dat",
+          "section": "floorplan_R3_plan2.ldr",
+          "line_number": 231,
+          "source_path": [
+            231
+          ]
+        }
+      ]
+    },
+    {
+      "code": "assembly.disconnected_evidence",
+      "severity": "warning",
+      "message": "Connection analysis finds multiple groups. Investigate floating parts, missing connector metadata, or intentional separate objects.",
+      "line_number": null,
+      "section": null,
+      "component_count": 41
+    },
+    {
+      "code": "coverage.collision_review",
+      "severity": "warning",
+      "message": "Some parts lack rectangular body checks; oriented bounds refine candidates, while remaining overlaps require material review.",
+      "line_number": null,
+      "section": null
+    }
+  ],
+  "geometry": {
+    "complete": true,
+    "connection_coverage": {
+      "complete": 368,
+      "partial": 1,
+      "none": 0
+    },
+    "collision_method": "AABB broad phase, oriented bounds separation, curated rectangular body SAT",
+    "physical_validity": "not_proven",
+    "bounds": {
+      "min": [
+        19.7,
+        -127.75,
+        19.683372
+      ],
+      "max": [
+        1050.30052563,
+        0.3231199999999994,
+        680.304130047718
+      ]
+    },
+    "occurrence_count": 369,
+    "detail": "summary",
+    "instance_offset": 0,
+    "instances": [],
+    "instances_truncated": true,
+    "contacts_checked": true,
+    "contact_count": 758,
+    "contacts": [],
+    "contacts_truncated": true,
+    "confirmed_components": null,
+    "optimistic_components": null,
+    "optimistic_component_count": 41,
+    "confirmed_component_count": 227,
+    "components_truncated": true,
+    "overlap_candidate_count": 485,
+    "overlaps": [],
+    "overlaps_truncated": true,
+    "diagnostics": [
+      {
+        "code": "connection.invalid_transform",
+        "message": "connection feature 'studO@L9:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:9 rejected under invalid scale or reflection",
+        "severity": "warning",
+        "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+        "section": null,
+        "line_number": 9,
+        "offending_value": "studO@L9:I0",
+        "suggestions": [],
+        "cause": null
+      },
+      {
+        "code": "connection.invalid_transform",
+        "message": "connection feature 'studO@L10:I0' from ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat:10 rejected under invalid scale or reflection",
+        "severity": "warning",
+        "path": "ldraw-nova-master\\data\\offLibShadow\\p\\stud2.dat",
+        "section": null,
+        "line_number": 10,
+        "offending_value": "studO@L10:I0",
+        "suggestions": [],
+        "cause": null
+      },
+      {
+        "code": "assembly.body_overlap",
+        "severity": "error",
+        "message": "Rectangular brick/plate body envelopes overlap; reposition them.",
+        "line_number": null,
+        "section": null,
+        "instances": [
+          224,
+          226
+        ],
+        "penetration": 3.8630710775144905e-05,
+        "sources": [
+          {
+            "part": "3023b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 229,
+            "source_path": [
+              229
+            ]
+          },
+          {
+            "part": "3068b.dat",
+            "section": "floorplan_R3_plan2.ldr",
+            "line_number": 231,
+            "source_path": [
+              231
+            ]
+          }
+        ]
+      },
+      {
+        "code": "assembly.disconnected_evidence",
+        "severity": "warning",
+        "message": "Connection analysis finds multiple groups. Investigate floating parts, missing connector metadata, or intentional separate objects.",
+        "line_number": null,
+        "section": null,
+        "component_count": 41
+      },
+      {
+        "code": "coverage.collision_review",
+        "severity": "warning",
+        "message": "Some parts lack rectangular body checks; oriented bounds refine candidates, while remaining overlaps require material review.",
+        "line_number": null,
+        "section": null
+      }
+    ],
+    "limitations": [
+      "AABB candidates do not prove collisions; stud/socket bounding boxes normally overlap.",
+      "Connector matches, including 'confirmed', are computational evidence, not buildability certification.",
+      "No material intersection, clutch strength, stability, legal connection stress, or real colour availability proof."
+    ]
+  }
+}
