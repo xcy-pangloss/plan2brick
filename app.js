@@ -60,7 +60,7 @@ function renderInputCard() {
   const candidate = plan.candidates[0];
   const bbox = candidate.stats.bbox || ['—', '—'];
   $('#inputPlan').src = plan.input;
-  $('#inputPlan').alt = `${plan.title} input floor plan`;
+  $('#inputPlan').alt = `${plan.title} clean input plan: room outlines, names and areas, no furniture`;
   $('#planBadge').textContent = plan.id;
   $('#inputBrief').textContent = `“${plan.brief}”`;
   $('#inputMeta').innerHTML = [
@@ -74,7 +74,7 @@ function renderInputCard() {
   $('#roomLegend').innerHTML = candidate.rooms.map((r) => `
     <div class="legend-item"><i style="background:${esc(r.col)}"></i>
       <span title="${esc(r.c || r.n)}">${esc(r.n)}</span></div>`).join('');
-  $('#planFrame').onclick = () => openLightbox(plan.input, `${plan.id} · input floor plan`);
+  $('#planFrame').onclick = () => openLightbox(plan.input, `${plan.id} · clean input plan (no furniture)`);
 }
 
 function renderCandidateTabs() {
@@ -96,7 +96,7 @@ function renderCandidateChrome() {
   const c = plan.candidates[state.cand];
   const s = c.stats;
 
-  const partsTitle = `${fmt(s.furnitureParts || 0)} furniture + ${fmt(s.wallParts || 0)} wall bricks`;
+  const partsTitle = `${fmt(s.furnitureParts || 0)} furniture + ${fmt(s.floorParts || 0)} floor + ${fmt(s.wallParts || 0)} wall bricks`;
   $('#stats').innerHTML = `
     <div class="stat"><b>${esc(s.coverage)}</b><span>Coverage</span></div>
     <div class="stat" title="${esc(partsTitle)}"><b>${fmt(s.parts)}</b><span>Parts</span></div>
@@ -119,7 +119,7 @@ function renderCandidateChrome() {
   const views = [['home', '3/4 view'], ['top', 'Top view'], ['front', 'Front view']];
   $('#renderStrip').innerHTML = views.map(([key, label]) => `
     <figure class="render-card" data-src="${esc(c.renders[key])}"
-      data-cap="${esc(`${plan.id} · candidate ${c.label} · ${label} (LEGO walls)`)}">
+      data-cap="${esc(`${plan.id} · candidate ${c.label} · ${label} (LEGO floor and walls)`)}">
       <img src="${esc(c.renders[key])}" alt="${esc(`${plan.id} candidate ${c.label} ${label} 3D view`)}" loading="lazy">
       <figcaption><b>${esc(label)}</b><span>${esc(c.label)} · ${fmt(s.parts)} parts</span></figcaption>
     </figure>`).join('');
@@ -609,6 +609,8 @@ function buildScene(cand) {
   const cur = {
     root,
     labels: [],
+    floorMeshes: [],
+    floorGroup: null,
     wallMeshes: [],
     wallGroup: null,
     ghostMat: null,
@@ -618,25 +620,12 @@ function buildScene(cand) {
     center: new THREE.Vector3(bounds.cx, 60, -bounds.cz),
   };
 
-  // Room floors + thin outlines.
+  // Room outlines (the brick floor itself is instanced below).
   cand.rooms.forEach((room) => {
     const [x0, z0, x1, z1] = room.r;
     const w = x1 - x0;
     const d = z1 - z0;
     if (w <= 1 || d <= 1) return;
-    const geo = new THREE.PlaneGeometry(w, d);
-    const mat = new THREE.MeshStandardMaterial({
-      color: new THREE.Color(room.col || '#eceff3'),
-      roughness: 0.96,
-      metalness: 0,
-      side: THREE.DoubleSide,
-    });
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.rotation.x = -Math.PI / 2;
-    mesh.position.set((x0 + x1) / 2, 0.6, (z0 + z1) / 2);
-    mesh.receiveShadow = true;
-    root.add(mesh);
-    cur.disposables.push(geo, mat);
 
     const pts = [
       new THREE.Vector3(x0, 0.4, z0),
@@ -710,7 +699,14 @@ function buildScene(cand) {
     });
   };
 
+  // Floors are real Dark Tan LDraw bricks (24 LDU high, top at y=0), instanced
+  // like every other part.  They stay visible in all wall modes.
+  const floorGroup = new THREE.Group();
+  cur.floorGroup = floorGroup;
+  root.add(floorGroup);
+
   addInstances(cand.placements, root, cur.partMeshes);
+  addInstances(cand.floorPlacements || [], floorGroup, cur.floorMeshes);
   addInstances(cand.wallPlacements || [], wallGroup, cur.wallMeshes);
 
   root.updateMatrixWorld(true);
@@ -769,6 +765,7 @@ function clearScene() {
   if (!v || !v.current) return;
   const cur = v.current;
   cur.partMeshes.forEach((mesh) => mesh.dispose());
+  cur.floorMeshes.forEach((mesh) => mesh.dispose());
   cur.wallMeshes.forEach((mesh) => mesh.dispose());
   if (cur.ghostMat) cur.ghostMat.dispose();
   cur.disposables.forEach((d) => { if (d && d.dispose) d.dispose(); });

@@ -44,7 +44,7 @@
     <a class="pill primary" href="index.html#viewer"><span class="dot"></span>Explore in 3D</a>
     <a class="pill" href="assets/slides/slides.pdf">Slides (PDF)</a>
   </div>
-  <p class="detail-facts"><span><b>9/9</b> candidate scenes green</span><span><b>236/264</b> object requests placed (89.4%)</span><span><b>7,644</b> parts</span><span><b>0</b> cross-room overlaps</span></p>
+  <p class="detail-facts"><span><b>9/9</b> candidate scenes green</span><span><b>236/264</b> object requests placed (89.4%)</span><span><b>9,100</b> parts</span><span><b>0</b> cross-room overlaps</span></p>
 
   <nav class="detail-toc" aria-label="On this page">
     <a href="#goal"><span>01</span><b>Goal</b><small>What “buildable” means</small></a>
@@ -61,22 +61,22 @@
 
   <div class="detail-grid">
     <div class="detail-copy">
-      <p class="lead">The deliverable is not a rendering of an interior. It is a complete LDraw scene: every piece selected from a known library, every object placed inside a room, every wall laid as real brick courses, and the whole assembly passed through a validation gate before it is shown.</p>
-      <p>From one plan and one brief the system returns <strong>three candidate scenes rather than one answer</strong>. A one-sentence brief under-determines the interior, so the solver exposes three plausible room layouts and wall preferences. The reader can compare them instead of accepting a single black box.</p>
+      <p class="lead">The deliverable is not a rendering of an interior. It is a complete LDraw scene: every piece selected from a known library, every object placed inside a room, the floor and every wall laid as real brick courses, and the whole assembly passed through a validation gate before it is shown.</p>
+      <p>From one plan and one brief the system returns <strong>three candidate scenes rather than one answer</strong>. A one-sentence brief under-determines the interior, so the solver exposes three plausible furnishing variants and wall preferences on the same input layout. The reader can compare them instead of accepting a single black box.</p>
       <div class="callout"><b>Only one step is learned.</b> Image → IR is the only model call. The solver, wall builder, validator and renderer are deterministic: the same IR produces the same <code>.mpd</code>, with no token cost and no sampling variance. In this public build the image → IR step is served from a verified cache, because the available DeepSeek endpoint is text-only.</div>
     </div>
 
     <figure class="goal-pair">
       <div class="goal-shot">
         <span class="mini-label">Input</span>
-        <img src="assets/plans/R1.png" alt="R1 three-bedroom apartment floor plan" loading="lazy">
+        <img src="assets/plans/R1.png" alt="R1 input schematic: room outlines, names and areas, no furniture" loading="lazy">
         <b>R1 · 11 rooms</b>
       </div>
       <div class="goal-arrow" aria-hidden="true"><span class="arrow-glyph">→</span><small>solve</small></div>
       <div class="goal-shot">
         <span class="mini-label">Output</span>
         <img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 candidate A rendered in LEGO" loading="lazy">
-        <b>A · 1,191 parts</b>
+        <b>A · 1,381 parts</b>
       </div>
       <figcaption>One plan and one brief in; three assembled candidates out. The image on the right is candidate A of nine, not a single predetermined answer.</figcaption>
     </figure>
@@ -87,7 +87,7 @@
     <article class="contract">
       <span>01</span>
       <h3>Known parts</h3>
-      <p>Every piece comes from a 42-item, 16-category furniture library plus standard LDraw wall bricks. No hallucinated geometry.</p>
+      <p>Every piece comes from a 42-item, 16-category furniture library plus standard LDraw floor and wall bricks. No hallucinated geometry.</p>
     </article>
     <article class="contract">
       <span>02</span>
@@ -97,7 +97,7 @@
     <article class="contract">
       <span>03</span>
       <h3>Countable</h3>
-      <p>Each candidate ships with a per-part, per-colour BOM. R1 candidate A totals 1,191 pieces: 666 furniture parts + 525 wall bricks.</p>
+      <p>Each candidate ships with a per-part, per-colour BOM. R1 candidate A totals 1,381 pieces: 666 furniture parts + 240 floor bricks + 475 wall bricks.</p>
     </article>
     <article class="contract">
       <span>04</span>
@@ -143,7 +143,7 @@
   <div class="kpi-row">
     <div><b>9/9</b><span>candidate scenes</span><em>3 plans × 3 candidates, all green</em></div>
     <div><b>236/264</b><span>object requests placed</span><em>89.4% coverage across nine scenes</em></div>
-    <div><b>7,644</b><span>parts in total</span><em>4,378 furniture + 3,266 wall bricks</em></div>
+    <div><b>9,100</b><span>parts in total</span><em>4,378 furniture + 1,569 floor + 3,153 wall bricks</em></div>
     <div><b>0</b><span>cross-room overlaps</span><em>and 0 real validation errors</em></div>
   </div>
 
@@ -158,8 +158,8 @@
 
   <div class="input-layout">
     <figure class="detail-plan">
-      <img src="assets/plans/R1.png" alt="R1 floor plan with 11 labelled rooms and metric dimensions" loading="lazy">
-      <figcaption><b>R1 · 11 rooms.</b> Living room 3.9 × 3.8 m; dining room 3.9 × 2.65 m. Dimensions are read from the drawing; uncertain spans are estimated and kept in the IR notes rather than silently rounded.</figcaption>
+      <img src="assets/plans/R1.png" alt="R1 input schematic: room outlines, names and areas, no furniture" loading="lazy">
+      <figcaption><b>R1 · 11 rooms.</b> The clean plan the solver consumes: room outlines, names and areas, no furniture. Living room 3.9 × 3.8 m; dining room 3.9 × 2.65 m. Dimensions are read from the drawing’s dimension chains; uncertain spans are estimated and kept in the IR notes rather than silently rounded.</figcaption>
     </figure>
 
     <div class="input-copy">
@@ -201,7 +201,7 @@
 
     <div>
       <pre class="code-block"><code>{
-  <span class="k">"source"</span>: <span class="s">"replanned:floorplan_R1.png#cand0"</span>,
+  <span class="k">"source"</span>: <span class="s">"fixed:floorplan_R1.png#cand0"</span>,
   <span class="k">"image_type"</span>: <span class="s">"floorplan"</span>,
   <span class="k">"rooms"</span>: [
     { <span class="k">"name_cn"</span>: <span class="s">"客厅"</span>, <span class="k">"name_en"</span>: <span class="s">"living_room"</span>,
@@ -242,7 +242,7 @@
       <img src="assets/renders/floorplan_R1_plan0_home.jpg" alt="R1 candidate A home view" loading="lazy">
       <ul class="cand-stats">
         <li><span>Placed</span><b>37 / 41</b></li>
-        <li><span>Parts</span><b>1,191</b></li>
+        <li><span>Parts</span><b>1,381</b></li>
         <li><span>Real errors</span><b>0</b></li>
         <li><span>ε notes</span><b>0</b></li>
       </ul>
@@ -256,7 +256,7 @@
       <img src="assets/renders/floorplan_R1_plan1_home.jpg" alt="R1 candidate B home view" loading="lazy">
       <ul class="cand-stats">
         <li><span>Placed</span><b>38 / 41</b></li>
-        <li><span>Parts</span><b>1,187</b></li>
+        <li><span>Parts</span><b>1,390</b></li>
         <li><span>Real errors</span><b>0</b></li>
         <li><span>ε notes</span><b>2</b></li>
       </ul>
@@ -270,7 +270,7 @@
       <img src="assets/renders/floorplan_R1_plan2_home.jpg" alt="R1 candidate C home view" loading="lazy">
       <ul class="cand-stats">
         <li><span>Placed</span><b>36 / 41</b></li>
-        <li><span>Parts</span><b>1,180</b></li>
+        <li><span>Parts</span><b>1,402</b></li>
         <li><span>Real errors</span><b>0</b></li>
         <li><span>ε notes</span><b>2</b></li>
       </ul>
@@ -307,7 +307,7 @@
           <td><b>R1</b><br><span class="sub">11 rooms</span></td>
           <td>“Use the dining room as a study.”</td>
           <td class="num">37/41 · 38/41 · 36/41</td>
-          <td class="num">1,191 · 1,187 · 1,180</td>
+          <td class="num">1,381 · 1,390 · 1,402</td>
           <td class="gate">3/3 green</td>
           <td class="num">0 · 2 · 2</td>
         </tr>
@@ -315,7 +315,7 @@
           <td><b>R2</b><br><span class="sub">6 rooms</span></td>
           <td>“Add a desk to the living room.”</td>
           <td class="num">22/23 · 20/23 · 20/23</td>
-          <td class="num">708 · 694 · 683</td>
+          <td class="num">814 · 778 · 781</td>
           <td class="gate">3/3 green</td>
           <td class="num">0 · 1 · 1</td>
         </tr>
@@ -323,7 +323,7 @@
           <td><b>R3</b><br><span class="sub">7 rooms</span></td>
           <td>“Replace the coffee table with a desk in the living room.”</td>
           <td class="num">21/24 · 21/24 · 21/24</td>
-          <td class="num">672 · 669 · 660</td>
+          <td class="num">855 · 844 · 855</td>
           <td class="gate">3/3 green</td>
           <td class="num">1 · 1 · 1</td>
         </tr>
@@ -331,7 +331,7 @@
     </table>
   </div>
   <p class="scroll-hint">Swipe horizontally to see the full table →</p>
-  <p class="fineprint">Parts counts include walls (five courses, 1.2 m). Across the suite: 236/264 requests, 7,644 parts, 0 cross-room overlaps and 0 real validation errors.</p>
+  <p class="fineprint">Parts counts include the brick floor and walls (five courses, 1.2 m). Across the suite: 236/264 requests, 9,100 parts (4,378 furniture + 1,569 floor + 3,153 wall), 0 cross-room overlaps and 0 real validation errors.</p>
 
   <div class="precision-grid">
     <div class="precision-copy">
@@ -349,24 +349,24 @@
 
     <aside class="bom-card">
       <span class="mini-label">Bill of materials · R1 A</span>
-      <h3>1,191 pieces, 197 part/colour rows</h3>
+      <h3>1,381 pieces, 202 part/colour rows</h3>
       <table class="bom-table">
         <tbody>
-          <tr><td>202</td><td>Brick 1 × 8</td><td>Light Bluish Grey</td></tr>
-          <tr><td>102</td><td>Brick 1 × 3</td><td>Light Bluish Grey</td></tr>
-          <tr><td>69</td><td>Brick 1 × 2</td><td>Light Bluish Grey</td></tr>
-          <tr><td>64</td><td>Brick 1 × 6</td><td>Light Bluish Grey</td></tr>
-          <tr><td>63</td><td>Brick 1 × 4</td><td>Light Bluish Grey</td></tr>
+          <tr><td>190</td><td>Brick 1 × 8</td><td>Light Bluish Grey</td></tr>
+          <tr><td>156</td><td>Brick 2 × 8</td><td>Dark Tan</td></tr>
+          <tr><td>85</td><td>Brick 1 × 3</td><td>Light Bluish Grey</td></tr>
+          <tr><td>71</td><td>Brick 1 × 4</td><td>Light Bluish Grey</td></tr>
+          <tr><td>63</td><td>Brick 1 × 2</td><td>Light Bluish Grey</td></tr>
         </tbody>
       </table>
-      <p class="fineprint">Top five rows by quantity. They are the light-grey wall bricks of the five-course wall builder. The full BOM is per part and per colour.</p>
+      <p class="fineprint">Top five rows by quantity: the light-grey wall bricks, plus the Dark Tan 2 × 8 floor bricks at #2. The full BOM is per part and per colour.</p>
       <a class="pill" href="assets/downloads/floorplan_R1_plan0.csv" download>Download full BOM (.csv)</a>
     </aside>
   </div>
 
   <h3 class="block-title">What each candidate ships with</h3>
   <div class="output-files">
-    <div class="file-card"><b>.mpd</b><span>LDraw scene with furniture and wall bricks.</span></div>
+    <div class="file-card"><b>.mpd</b><span>LDraw scene with furniture, brick floor and wall bricks.</span></div>
     <div class="file-card"><b>BOM .csv</b><span>Per-part, per-colour quantities.</span></div>
     <div class="file-card"><b>validate .json</b><span>Raw LDraw report, diagnostics preserved.</span></div>
     <div class="file-card"><b>3 views</b><span>3/4, top and front renders.</span></div>
