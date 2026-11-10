@@ -32,10 +32,12 @@
   <nav aria-label="Sections">
     <a href="#glance">At a glance</a>
     <a href="goal.html">In detail</a>
+    <a href="benchmark.html">Benchmark</a>
     <a href="#overview">Overview</a>
     <a href="#viewer">3D demo</a>
     <a href="#method">Method</a>
     <a href="#results">Results</a>
+    <a href="#latest">Latest</a>
     <a href="#library">Library</a>
     <a href="#limitations">Limitations</a>
   </nav>
@@ -163,7 +165,7 @@
 <section class="abstract wrap reveal" id="overview">
   <div class="abstract-card">
     <h2>Abstract</h2>
-    <p class="lead">We present <strong>Plan2Brick</strong>, a system that turns a floor-plan image and one sentence of natural-language brief into a set of buildable LEGO interior scenes. A vision model reads rooms and dimensions into a schema-checked scene IR; a curated <strong>42-object / 16-category</strong> library supplies the geometry; a deterministic solver selects parts, packs furniture against wall bands, and removes both intra-room and cross-room collisions; a LEGO wall builder lays five interlocking brick courses along every room boundary; the LDraw toolchain validates and renders every candidate.</p>
+    <p class="lead">We present <strong>Plan2Brick</strong>, a system that turns a floor-plan image and one sentence of natural-language brief into a set of buildable LEGO interior scenes. A vision model reads rooms and dimensions into a schema-checked scene IR; a curated <strong>58-object / 16-category</strong> library supplies the geometry; a deterministic solver selects parts, packs furniture against wall bands, and removes both intra-room and cross-room collisions; a LEGO wall builder lays five interlocking brick courses along every room boundary; the LDraw toolchain validates and renders every candidate.</p>
     <p>On three real floor plans, all <strong>nine candidate scenes</strong> pass validation with <strong>zero cross-room overlaps</strong>: <strong>236/264</strong> object requests are placed, using <strong>4,378 furniture parts, 1,569 floor bricks and 3,153 wall bricks</strong> in total. This page lets you inspect every candidate in 3D, switch the LEGO walls between ghost and solid to read the room layout, compare the three furnishing candidates, and download the <code>.mpd</code> scene and its BOM.</p>
   </div>
 </section>
@@ -254,7 +256,7 @@
     <article class="step">
       <span class="step-num">2</span>
       <h3>Select from the library</h3>
-      <p>A curated library of <strong>42 objects across 16 categories</strong>, each with captions, specs and three-view QC. Text and shape queries retrieve a shortlist; a fit-aware scorer keeps only items that fit the room.</p>
+      <p>A curated library of <strong>58 objects across 16 categories</strong>, each with captions, specs and three-view QC. Text and shape queries retrieve a shortlist; a fit-aware scorer keeps only items that fit the room.</p>
       <span class="chip">text + shape retrieval</span>
     </article>
     <article class="step">
@@ -321,16 +323,42 @@
     </article>
     <article class="evidence">
       <span class="mini-label">Library check</span>
-      <h3>42/42 across the board</h3>
-      <p>All 42 items validate, all have QC renders, text self-retrieval is 42/42, shape self-retrieval is 42/42 (MRR 1.0), and 56/56 synonym queries return the right item at top-1.</p>
+      <h3>58/58 across the board</h3>
+      <p>All 58 items validate, all have QC renders, text self-retrieval is 58/58, shape self-retrieval is 58/58 (MRR 1.0), and 56/56 synonym queries return the right item at top-1.</p>
     </article>
   </div>
+  <p class="fineprint reveal">Beyond this vertical slice: the <a href="benchmark.html">18-plan benchmark</a> reports 64 applicable cells, four baseline arms, a diversity–quality Pareto check and a P/G/S/O failure taxonomy, with its untested stages stated explicitly.</p>
+</section>
+
+<section class="results wrap" id="latest">
+  <div class="section-head reveal">
+    <div><span class="num">03.1</span><h2>Latest: benchmark &amp; model comparison</h2></div>
+    <p>Frozen protocol, held-out model comparison, and the reliability gap between the tool and raw AI.</p>
+  </div>
+  <div class="kpis reveal">
+    <div class="kpi"><span class="kpi-n">18</span><span class="kpi-l">plans · 64 applicable cells · 384 candidates</span></div>
+    <div class="kpi"><span class="kpi-n">0.868</span><span class="kpi-l">benchmark coverage · distance 0.568</span></div>
+    <div class="kpi"><span class="kpi-n">65<small>/65</small></span><span class="kpi-l">deterministic cells build + brief · 0.970 coverage</span></div>
+    <div class="kpi"><span class="kpi-n">1,345</span><span class="kpi-l">candidate plans · 4,706 library items · 2,577 aliases</span></div>
+  </div>
+  <div class="table-wrap reveal">
+    <table class="results-table">
+      <thead><tr><th>Comparison</th><th>Observed result</th><th>Reading</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Claude vs GPT · perception</strong></td><td class="num-cell">Claude recall 0.953 · dims 0.163 m · F1 0.781<br>GPT recall 0.932 · dims 0.156 m · F1 0.749</td><td>Claude is stronger on room/object recall; GPT is slightly better on dimensions/coverage and faster.</td></tr>
+        <tr><td><strong>AI + builder · 845 runs</strong></td><td class="num-cell">845/845 build · brief 701/845 (83.0%) · coverage 0.936</td><td>Geometry is safe, but model planning still fails change-room-use in every family.</td></tr>
+        <tr><td><strong>Raw AI direct</strong></td><td class="num-cell">0 valid LDraw; best structured CSV = valid 153-part flat model</td><td>“Convertible” is not “correct”; Claude/GPT long outputs hit upstream HTTP 500.</td></tr>
+        <tr><td><strong>Plan2Brick deterministic</strong></td><td class="num-cell">65/65 build · 65/65 brief · coverage 0.970 · 0 overlaps · 0 calls</td><td>The tool layer, not a stronger model, is what makes the output reliable.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fineprint reveal">Full protocol and failure taxonomy: <a href="benchmark.html">benchmark page</a>. Candidate assets are a reviewed pool and are not merged into the frozen library. The deterministic arm uses no model calls.</p>
 </section>
 
 <section class="library wrap" id="library">
   <div class="section-head reveal">
     <div><span class="num">04</span><h2>Object library</h2></div>
-    <p>42 items · 16 categories, curated from BrickNet, then validated and QC-rendered.</p>
+    <p>58 items · 16 categories, curated from BrickNet, then validated and QC-rendered.</p>
   </div>
   <div class="library-grid reveal" id="libraryGrid"></div>
   <p class="fineprint reveal">Every scene is assembled from this closed library. Category tokens keep the LLM's choices checkable; retrieval and geometry remain deterministic. Library thumbnails are LeoCAD QC renders.</p>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan2Brick · Benchmark</title>
+<meta name="description" content="Plan2Brick benchmark: 18 floor plans, 4 briefs, K=6, four baseline arms, diversity-quality Pareto and a P/G/S/O failure taxonomy (4 November 2026).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='20' width='52' height='34' rx='6' fill='%23b23a2e'/%3E%3Crect x='14' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3Crect x='38' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .bench-hero { padding: 58px 0 28px; border-bottom: 1px solid var(--line); }
+  .bench-hero h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); max-width: 900px; }
+  .bench-hero h1 em { color: var(--accent); font-style: normal; }
+  .bench-sub { max-width: 760px; color: var(--muted); margin-top: 18px; font-size: 17px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; color: var(--muted); font-size: 14px; }
+  .facts b { color: var(--ink); font-size: 17px; }
+  .bench-section { padding: 42px 0; border-bottom: 1px solid var(--line); }
+  .bench-section h2 { font-size: clamp(1.5rem, 2.7vw, 2.1rem); margin-bottom: 10px; }
+  .bench-section .lede { max-width: 820px; color: var(--muted); margin-bottom: 20px; }
+  .bench-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 20px 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+  .card .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .09em; }
+  .card .v { font-size: 25px; font-weight: 750; margin-top: 4px; }
+  .card .n { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 8px; border-radius: var(--radius); }
+  table { width: 100%; border-collapse: collapse; margin: 0; font-size: 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+  th { background: var(--soft); color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; }
+  th:first-child, td:first-child { text-align: left; }
+  tr:last-child td { border-bottom: none; }
+  .fault-table th:nth-child(2), .fault-table td:nth-child(2),
+  .fault-table th:nth-child(3), .fault-table td:nth-child(3) { text-align: left; }
+  .fault-table td:nth-child(3) { white-space: normal; min-width: 340px; }
+  .all-cells { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 0 16px 12px; }
+  .all-cells summary { cursor: pointer; padding: 13px 0; font-weight: 650; color: var(--accent); }
+  .all-cells .table-wrap { margin-top: 4px; }
+  .note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+  .good { color: var(--green); font-weight: 650; }
+  .warn { color: var(--accent); font-weight: 650; }
+  .bench-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .bench-links a { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 8px 14px; font-size: 14px; }
+  .bench-links a:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  code { font-family: var(--mono); }
+  @media (max-width: 720px) {
+    .site-head nav { display: none; }
+    .bench-section { padding: 30px 0; }
+    th, td { padding: 8px 9px; font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the benchmark</a>
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="Plan2Brick home">
+    <span class="brick" aria-hidden="true"><i></i><i></i></span>
+    <span>Plan2Brick</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="index.html">Overview</a>
+    <a href="goal.html">In detail</a>
+    <a href="benchmark.html" aria-current="page">Benchmark</a>
+    <a href="index.html#viewer">3D demo</a>
+    <a href="index.html#results">Results</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="bench-hero wrap">
+  <p class="eyebrow">Evaluation · 4 November 2026</p>
+  <h1>Eighteen plans,<br><em>one protocol.</em></h1>
+  <p class="bench-sub">The 3D page is a vertical slice: three apartments, three candidates each.
+  This page reports the systematic extension behind it — 18 plans, four briefs, K=6,
+  a random baseline, the D0–D4 ladder, a diversity–quality frontier check, and a
+  stage-by-stage failure taxonomy. It is a snapshot of non-frozen extensions, not a
+  replacement for the frozen v1.0 catalogue.</p>
+  <div class="facts">
+    <span><b>18</b> plans (9 real)</span>
+    <span><b>64</b> applicable cells</span>
+    <span><b>384</b> selected candidates</span>
+    <span><b>0</b> build / check failures</span>
+    <span><b>58</b> library items / 16 categories</span>
+  </div>
+  <div class="bench-links">
+    <a href="#matrix">Main matrix</a>
+    <a href="#pareto">Diversity–quality</a>
+    <a href="#failures">Failure taxonomy</a>
+    <a href="#stress">Stress set</a>
+    <a href="#caveats">What is not tested</a>
+  </div>
+</section>
+
+<section class="bench-section wrap" id="matrix">
+  <h2>Main matrix</h2>
+  <p class="lede">The v1.3 catalogue keeps R1–R6 as dev plans and adds R7–R9 as real test
+  plans, alongside the nine synthetic test plans. Unless stated otherwise, runs use seed
+  0, pool 24, K 6 and no renders; D3 runs fidelity mode and D4 creative mode. D0's fixed
+  style/profile settings collapse the pool to one unique candidate per cell, and the
+  runner refuses to duplicate, so it selects 64/384; it is shown for the ablation, not as
+  a fair K=6 baseline.</p>
+  <div class="bench-grid">
+    <div class="card"><div class="k">Plans</div><div class="v">18</div><div class="n">9 real + 9 synthetic</div></div>
+    <div class="card"><div class="k">Ran / planned</div><div class="v">64 / 72</div><div class="n">8 applicability skips</div></div>
+    <div class="card"><div class="k">Selected / K</div><div class="v">384 / 384</div><div class="n">shortfall 0</div></div>
+    <div class="card"><div class="k">Build failures</div><div class="v good">0</div><div class="n">check, semantic and error</div></div>
+  </div>
+  <div class="table-wrap"><table class=""><thead><tr><th>Arm</th><th>Sel/K</th><th>Distance</th><th>Coverage</th><th>Room cov.</th><th>Topology</th><th>Parts</th></tr></thead><tbody><tr><td><b>D0</b></td><td>64/384</td><td>0.0000</td><td>0.9140</td><td>1.0000</td><td>0.0000</td><td>1028.6</td></tr><tr><td><b>R</b></td><td>384/384</td><td>0.5544</td><td>0.8817</td><td>0.9892</td><td>0.0000</td><td>1005.7</td></tr><tr><td><b>D3</b></td><td>384/384</td><td>0.5682</td><td>0.8678</td><td>0.9928</td><td>0.0000</td><td>1022.1</td></tr><tr><td><b>D4</b></td><td>384/384</td><td>0.6793</td><td>0.8737</td><td>0.9928</td><td>0.7714</td><td>1029.4</td></tr></tbody></table></div>
+  <p class="note">D3 is the QD fidelity arm used as the reference in the rest of this page.
+  D4 is QD creative: it trades layout fidelity for topology diversity.</p>
+
+  <h3>Paired comparisons (64 cells)</h3>
+  <div class="table-wrap"><table class=""><thead><tr><th>Pair</th><th>Metric</th><th>Wins / losses / ties</th><th>Mean Δ</th><th>Cells</th></tr></thead><tbody><tr><td>D3 vs R</td><td>mean distance</td><td>63/1/0</td><td>+0.0138</td><td>64</td></tr><tr><td>D3 vs R</td><td>coverage</td><td>12/49/3</td><td>-0.0139</td><td>64</td></tr><tr><td>D4 vs D3</td><td>mean distance</td><td>64/0/0</td><td>+0.1111</td><td>64</td></tr><tr><td>D4 vs D3</td><td>topology</td><td>64/0/0</td><td>+0.7714</td><td>64</td></tr><tr><td>D4 vs D3</td><td>coverage</td><td>42/19/3</td><td>+0.0058</td><td>64</td></tr></tbody></table></div>
+  <p class="note">QD raises mean distance over random on 63 of 64 cells, but gives up
+  coverage on 49. Creative mode raises distance and topology on every cell, with a small
+  net coverage gain (42 wins / 19 losses / 3 ties). These are paired cell-level
+  comparisons, not candidate-level wins.</p>
+
+  <details class="all-cells">
+    <summary>All 64 applicable cells and 8 skips</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>Plan</th><th>Brief</th><th>Split</th><th>Provenance</th><th>Sel/K</th><th>Distance</th><th>Coverage</th><th>Room cov.</th><th>Parts</th></tr></thead><tbody><tr><td>R1</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.552</td><td>0.836</td><td>1.000</td><td>1463.8</td></tr><tr><td>R1</td><td>B2</td><td>dev</td><td>real</td><td>6/6</td><td>0.554</td><td>0.870</td><td>1.000</td><td>1466.8</td></tr><tr><td>R1</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.551</td><td>0.846</td><td>1.000</td><td>1461.3</td></tr><tr><td>R1</td><td>B4</td><td>dev</td><td>real</td><td>6/6</td><td>0.567</td><td>0.867</td><td>1.000</td><td>1475.2</td></tr><tr><td>R2</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.559</td><td>0.879</td><td>1.000</td><td>771.0</td></tr><tr><td>R2</td><td>B2</td><td>dev</td><td>real</td><td>6/6</td><td>0.575</td><td>0.901</td><td>1.000</td><td>783.5</td></tr><tr><td>R2</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.566</td><td>0.880</td><td>1.000</td><td>754.2</td></tr><tr><td>R3</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.570</td><td>0.831</td><td>1.000</td><td>905.7</td></tr><tr><td>R3</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.571</td><td>0.846</td><td>1.000</td><td>900.3</td></tr><tr><td>R3</td><td>B4</td><td>dev</td><td>real</td><td>6/6</td><td>0.568</td><td>0.924</td><td>1.000</td><td>911.0</td></tr><tr><td>R4</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.568</td><td>0.769</td><td>1.000</td><td>823.3</td></tr><tr><td>R4</td><td>B2</td><td>dev</td><td>real</td><td>6/6</td><td>0.569</td><td>0.811</td><td>1.000</td><td>819.3</td></tr><tr><td>R4</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.565</td><td>0.775</td><td>1.000</td><td>817.3</td></tr><tr><td>R5</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.560</td><td>0.741</td><td>1.000</td><td>1038.3</td></tr><tr><td>R5</td><td>B2</td><td>dev</td><td>real</td><td>6/6</td><td>0.561</td><td>0.799</td><td>1.000</td><td>1050.3</td></tr><tr><td>R5</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.561</td><td>0.755</td><td>1.000</td><td>1036.7</td></tr><tr><td>R5</td><td>B4</td><td>dev</td><td>real</td><td>6/6</td><td>0.567</td><td>0.825</td><td>1.000</td><td>1067.3</td></tr><tr><td>R6</td><td>B1</td><td>dev</td><td>real</td><td>6/6</td><td>0.562</td><td>0.811</td><td>1.000</td><td>1443.5</td></tr><tr><td>R6</td><td>B2</td><td>dev</td><td>real</td><td>6/6</td><td>0.565</td><td>0.816</td><td>1.000</td><td>1431.8</td></tr><tr><td>R6</td><td>B3</td><td>dev</td><td>real</td><td>6/6</td><td>0.563</td><td>0.823</td><td>1.000</td><td>1443.2</td></tr><tr><td>R6</td><td>B4</td><td>dev</td><td>real</td><td>6/6</td><td>0.554</td><td>0.857</td><td>1.000</td><td>1402.0</td></tr><tr><td>R7</td><td>B1</td><td>test</td><td>real</td><td>6/6</td><td>0.558</td><td>0.771</td><td>0.963</td><td>1122.0</td></tr><tr><td>R7</td><td>B2</td><td>test</td><td>real</td><td>6/6</td><td>0.553</td><td>0.807</td><td>0.963</td><td>1113.5</td></tr><tr><td>R7</td><td>B3</td><td>test</td><td>real</td><td>6/6</td><td>0.559</td><td>0.786</td><td>0.963</td><td>1118.2</td></tr><tr><td>R7</td><td>B4</td><td>test</td><td>real</td><td>6/6</td><td>0.571</td><td>0.835</td><td>0.963</td><td>1137.3</td></tr><tr><td>R8</td><td>B1</td><td>test</td><td>real</td><td>6/6</td><td>0.560</td><td>0.720</td><td>1.000</td><td>1105.5</td></tr><tr><td>R8</td><td>B2</td><td>test</td><td>real</td><td>6/6</td><td>0.566</td><td>0.736</td><td>1.000</td><td>1091.8</td></tr><tr><td>R8</td><td>B3</td><td>test</td><td>real</td><td>6/6</td><td>0.560</td><td>0.730</td><td>1.000</td><td>1102.2</td></tr><tr><td>R8</td><td>B4</td><td>test</td><td>real</td><td>6/6</td><td>0.557</td><td>0.817</td><td>1.000</td><td>1152.5</td></tr><tr><td>R9</td><td>B1</td><td>test</td><td>real</td><td>6/6</td><td>0.547</td><td>0.791</td><td>1.000</td><td>1329.7</td></tr><tr><td>R9</td><td>B2</td><td>test</td><td>real</td><td>6/6</td><td>0.560</td><td>0.844</td><td>1.000</td><td>1350.7</td></tr><tr><td>R9</td><td>B3</td><td>test</td><td>real</td><td>6/6</td><td>0.575</td><td>0.810</td><td>1.000</td><td>1347.2</td></tr><tr><td>A</td><td>B1</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.571</td><td>0.830</td><td>1.000</td><td>1035.3</td></tr><tr><td>A</td><td>B2</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.572</td><td>0.854</td><td>1.000</td><td>1024.7</td></tr><tr><td>A</td><td>B3</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.572</td><td>0.839</td><td>1.000</td><td>1025.3</td></tr><tr><td>A</td><td>B4</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.572</td><td>0.896</td><td>1.000</td><td>1072.3</td></tr><tr><td>B</td><td>B1</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.575</td><td>0.842</td><td>0.944</td><td>771.2</td></tr><tr><td>B</td><td>B2</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.576</td><td>0.833</td><td>0.944</td><td>771.2</td></tr><tr><td>B</td><td>B3</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.577</td><td>0.881</td><td>0.944</td><td>762.0</td></tr><tr><td>C</td><td>B1</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.575</td><td>0.925</td><td>0.963</td><td>1153.2</td></tr><tr><td>C</td><td>B2</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.578</td><td>0.953</td><td>0.963</td><td>1143.3</td></tr><tr><td>C</td><td>B3</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.576</td><td>0.941</td><td>0.963</td><td>1145.2</td></tr><tr><td>C</td><td>B4</td><td>test</td><td>synthetic-traced</td><td>6/6</td><td>0.587</td><td>0.955</td><td>0.963</td><td>1176.2</td></tr><tr><td>studio</td><td>B1</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.577</td><td>0.891</td><td>1.000</td><td>579.2</td></tr><tr><td>studio</td><td>B2</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.582</td><td>0.957</td><td>1.000</td><td>569.0</td></tr><tr><td>studio</td><td>B3</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.579</td><td>0.910</td><td>1.000</td><td>573.0</td></tr><tr><td>1br</td><td>B1</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.567</td><td>0.949</td><td>1.000</td><td>788.2</td></tr><tr><td>1br</td><td>B2</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.573</td><td>0.979</td><td>1.000</td><td>797.3</td></tr><tr><td>1br</td><td>B3</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.568</td><td>0.947</td><td>1.000</td><td>777.2</td></tr><tr><td>2br</td><td>B1</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.566</td><td>0.892</td><td>1.000</td><td>919.0</td></tr><tr><td>2br</td><td>B2</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.567</td><td>0.945</td><td>1.000</td><td>911.5</td></tr><tr><td>2br</td><td>B3</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.567</td><td>0.912</td><td>1.000</td><td>911.3</td></tr><tr><td>3br</td><td>B1</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.569</td><td>0.938</td><td>1.000</td><td>1238.2</td></tr><tr><td>3br</td><td>B2</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.576</td><td>0.956</td><td>1.000</td><td>1223.8</td></tr><tr><td>3br</td><td>B3</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.570</td><td>0.945</td><td>1.000</td><td>1229.3</td></tr><tr><td>3br</td><td>B4</td><td>test</td><td>synthetic-preset</td><td>6/6</td><td>0.582</td><td>0.976</td><td>1.000</td><td>1250.0</td></tr><tr><td>openplan</td><td>B1</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.571</td><td>0.923</td><td>1.000</td><td>793.5</td></tr><tr><td>openplan</td><td>B2</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.570</td><td>0.917</td><td>1.000</td><td>770.7</td></tr><tr><td>openplan</td><td>B3</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.571</td><td>0.920</td><td>1.000</td><td>782.5</td></tr><tr><td>openplan</td><td>B4</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.582</td><td>0.956</td><td>1.000</td><td>777.5</td></tr><tr><td>lshape</td><td>B1</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.569</td><td>0.932</td><td>1.000</td><td>815.8</td></tr><tr><td>lshape</td><td>B2</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.579</td><td>0.945</td><td>1.000</td><td>782.8</td></tr><tr><td>lshape</td><td>B3</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.571</td><td>0.947</td><td>1.000</td><td>807.8</td></tr><tr><td>lshape</td><td>B4</td><td>test</td><td>synthetic-topology</td><td>6/6</td><td>0.581</td><td>0.946</td><td>1.000</td><td>800.5</td></tr></tbody></table></div>
+    <p class="note"><b>Applicability skips.</b> R2 B4: unmatched: Use the dining room as a study; R3 B2: unmatched: Remove the plant from the living room; R4 B4: unmatched: Use the dining room as a study; R9 B4: unmatched: Use the dining room as a study; B B4: unmatched: Use the dining room as a study; studio B4: unmatched: Use the dining room as a study; 1br B4: unmatched: Use the dining room as a study; 2br B4: unmatched: Use the dining room as a study.</p>
+  </details>
+</section>
+
+<section class="bench-section wrap" id="pareto">
+  <h2>Diversity–quality frontier</h2>
+  <p class="lede">A single mean point can hide the trade-off. For every cell,
+  <code>bench/pareto.py</code> rebuilds the same valid pool QD saw and samples 2,000
+  seeded K=6 subsets. The best sampled subset is an oracle, not another practical
+  selector: it asks whether the greedy archive is actually on the frontier.</p>
+  <div class="bench-grid">
+    <div class="card"><div class="k">QD mean distance</div><div class="v">0.568</div><div class="n">min 0.459 · coverage 0.868</div></div>
+    <div class="card"><div class="k">Random mean distance</div><div class="v">0.554</div><div class="n">min 0.316 · coverage 0.882</div></div>
+    <div class="card"><div class="k">QD dominated (mean)</div><div class="v warn">59 / 64</div><div class="n">coverage headroom +0.050</div></div>
+    <div class="card"><div class="k">QD dominated (min)</div><div class="v warn">44 / 64</div><div class="n">min-distance headroom +0.010</div></div>
+  </div>
+  <div class="table-wrap"><table class=""><thead><tr><th>Provenance</th><th>Cells</th><th>QD mean</th><th>QD min</th><th>QD cov.</th><th>Dom. mean</th><th>Dom. min</th><th>Cov. headroom</th></tr></thead><tbody><tr><td>real</td><td>32</td><td>0.5624</td><td>0.4499</td><td>0.8158</td><td>27/32</td><td>23/32</td><td>+0.0480</td></tr><tr><td>synthetic-preset</td><td>13</td><td>0.5725</td><td>0.4626</td><td>0.9383</td><td>13/13</td><td>9/13</td><td>+0.0516</td></tr><tr><td>synthetic-topology</td><td>8</td><td>0.5742</td><td>0.4792</td><td>0.9358</td><td>8/8</td><td>5/8</td><td>+0.0540</td></tr><tr><td>synthetic-traced</td><td>11</td><td>0.5756</td><td>0.4669</td><td>0.8864</td><td>11/11</td><td>7/11</td><td>+0.0535</td></tr></tbody></table></div>
+  <p class="note">QD beats the <em>typical</em> random draw on both diversity statistics,
+  but it is not on the sampled frontier in most cells. The largest gap is coverage at the
+  same mean distance. This is why the term-end table reports both axes rather than a
+  single “best” arm, and why a Pareto/local-search selector is the next selection step.</p>
+</section>
+
+<section class="bench-section wrap" id="failures">
+  <h2>Failure taxonomy</h2>
+  <p class="lede">P/G/S/O follows the term plan: P perception, G planning, S solver,
+  O output/build. The v1.3 table holds the IR fixed; live perception is now run
+  separately in <code>modelbench</code> (11 plans, Claude/GPT), so P is reported
+  as a separate arm rather than silently folded into this table.</p>
+  <div class="table-wrap"><table class="fault-table"><thead><tr><th>Code</th><th>Stage</th><th>Observed in v1.3 D3</th></tr></thead><tbody><tr><td><b>P</b></td><td>perception</td><td><span class='warn'>separate arm</span> — live perception: 11 plans, Claude/GPT; v1.3 cells hold IR fixed</td></tr><tr><td><b>G</b></td><td>planning</td><td>brief-effect failures 0 / 64; unmatched tokens 0 (brief-check proxy only)</td></tr><tr><td><b>S</b></td><td>solver / placement</td><td>1,857 of 11,914 requested objects unplaced (pooled coverage 0.8441); 0 / 0 cross-room / wall–furniture overlaps</td></tr><tr><td><b>O</b></td><td>output / build</td><td>check errors 0, pool build errors 0, invalid candidates 0, red gates 0, shortfall 0; 7 library-gap warnings</td></tr></tbody></table></div>
+  <p class="note">The seven check warnings are library gaps, not crashes: plan B carries
+  a washing machine and plan C a drying rack, both category <code>other</code>, which the
+  v1.4 library does not contain. They are recorded and dropped, not replaced. The full
+  matrix is no-render, so O here is build-level only; the M6 spot check is separate.</p>
+
+  <h3>Largest solver losses</h3>
+  <p class="lede">The worst cells by the fraction of requested objects the solver could
+  not place. These are capacity outcomes, not build failures; every listed scene still
+  passes the check gate.</p>
+  <div class="table-wrap"><table class=""><thead><tr><th>Plan</th><th>Brief</th><th>Requested</th><th>Placed</th><th>Unplaced</th><th>Coverage</th></tr></thead><tbody><tr><td>R8</td><td>B1</td><td>232</td><td>162</td><td>70</td><td>0.698</td></tr><tr><td>R8</td><td>B3</td><td>226</td><td>160</td><td>66</td><td>0.708</td></tr><tr><td>R5</td><td>B1</td><td>243</td><td>174</td><td>69</td><td>0.716</td></tr><tr><td>R8</td><td>B2</td><td>222</td><td>159</td><td>63</td><td>0.716</td></tr><tr><td>R5</td><td>B3</td><td>237</td><td>173</td><td>64</td><td>0.730</td></tr></tbody></table></div>
+  <p class="note">The same pattern appears across provenance: dense rooms exhaust the
+  wall-band capacity first. Counting these as S-stage losses keeps them from being
+  silently re-labelled as perception or planning errors.</p>
+</section>
+
+<section class="bench-section wrap" id="stress">
+  <h2>IR-level stress set</h2>
+  <p class="lede">Four deterministic perturbations of the R1 image IR test the M3/M4
+  stack, not perception: <code>rot90</code> swaps room width/depth, <code>coarse</code>
+  rounds dimensions, <code>nosize</code> removes object sizes, and <code>scale90</code>
+  shrinks the shell by 9%. All keep room names, so the same briefs apply.</p>
+  <div class="table-wrap"><table class=""><thead><tr><th>Variant</th><th>Cells</th><th>Coverage</th><th>Distance</th><th>Parts</th></tr></thead><tbody><tr><td>S1_rot90</td><td>4</td><td>0.8856</td><td>0.5536</td><td>1476.4</td></tr><tr><td>S2_coarse</td><td>4</td><td>0.8506</td><td>0.5410</td><td>1481.2</td></tr><tr><td>S3_nosize</td><td>4</td><td>0.8436</td><td>0.5511</td><td>1530.8</td></tr><tr><td>S4_scale90</td><td>4</td><td>0.7745</td><td>0.5518</td><td>1331.3</td></tr></tbody></table></div>
+  <p class="note">16/16 cells ran, 96/96 candidates selected, 0 shortfall, 0 build
+  failures. <code>scale90</code> is the harshest condition: the shell shrinks while the
+  furniture stays full-size, so coverage drops. This is an IR robustness result; it does
+  not measure image rotation, blur, low resolution or missing room names.</p>
+</section>
+
+<section class="bench-section wrap" id="caveats">
+  <h2>What is not tested</h2>
+  <ul>
+    <li><b>P-stage perception.</b> Live image perception is now a separate <code>modelbench</code> arm (11 plans, Claude/GPT); the v1.3 main table still holds cached IR fixed, so the two are not mixed.</li>
+    <li><b>LLM-direct and system ablations.</b> LLM-direct and the multi-model comparison are now run (845 Claude/GPT runs; brief-effect 83.0%); the four matched system ablations (no-library, no-IR, no-solver) remain future work.</li>
+    <li><b>Human preference.</b> The protocol is pre-registered; no participants have been run, so no preference number is claimed.</li>
+    <li><b>Full render validation.</b> The main matrix is build-valid; only a small M6 subset has renders. The stress set has a four-candidate spot check.</li>
+    <li><b>Generalisation.</b> Nine of eighteen plans are real, and R4–R9 are manual transcriptions, not fresh VLM outputs.</li>
+    <li><b>Planning errors inside the IR.</b> The G column is a brief-effect proxy; because the IR is held fixed, a wrong room count or missing object in the transcript is not re-scored here.</li>
+  </ul>
+  <p class="note">Sources: <code>lego-nova/docs/EVALUATION_PROTOCOL.md</code>,
+  <code>lego-nova/docs/BENCHMARK.md</code> §4.7–4.8,
+  <code>lego-nova/docs/DIVERSITY.md</code> §6.3,
+  <code>lego-nova/docs/FAILURES.md</code>. Reproduce from
+  <code>lego-nova/bench/run.py</code>, <code>main_table.py</code>, <code>pareto.py</code>
+  and <code>failures.py</code>.</p>
+  <div class="bench-links">
+    <a href="index.html">← Back to the project page</a>
+    <a href="goal.html">Goal · Input · Output</a>
+    <a href="index.html#viewer">3D demo</a>
+  </div>
+</section>
+</main>
+</body>
+</html>
