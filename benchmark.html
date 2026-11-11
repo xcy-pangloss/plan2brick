@@ -144,9 +144,10 @@
   <h2>Failure taxonomy</h2>
   <p class="lede">P/G/S/O follows the term plan: P perception, G planning, S solver,
   O output/build. The v1.3 table holds the IR fixed; live perception is now run
-  separately in <code>modelbench</code> (11 plans, Claude/GPT), so P is reported
-  as a separate arm rather than silently folded into this table.</p>
-  <div class="table-wrap"><table class="fault-table"><thead><tr><th>Code</th><th>Stage</th><th>Observed in v1.3 D3</th></tr></thead><tbody><tr><td><b>P</b></td><td>perception</td><td><span class='warn'>separate arm</span> — live perception: 11 plans, Claude/GPT; v1.3 cells hold IR fixed</td></tr><tr><td><b>G</b></td><td>planning</td><td>brief-effect failures 0 / 64; unmatched tokens 0 (brief-check proxy only)</td></tr><tr><td><b>S</b></td><td>solver / placement</td><td>1,857 of 11,914 requested objects unplaced (pooled coverage 0.8441); 0 / 0 cross-room / wall–furniture overlaps</td></tr><tr><td><b>O</b></td><td>output / build</td><td>check errors 0, pool build errors 0, invalid candidates 0, red gates 0, shortfall 0; 7 library-gap warnings</td></tr></tbody></table></div>
+  separately in <code>modelbench</code> (12 images; Claude/GPT vision, DeepSeek
+  text-only), so P is reported as a separate arm rather than silently folded into
+  this table.</p>
+  <div class="table-wrap"><table class="fault-table"><thead><tr><th>Code</th><th>Stage</th><th>Observed in v1.3 D3</th></tr></thead><tbody><tr><td><b>P</b></td><td>perception</td><td><span class='warn'>separate arm</span> — live perception: 12 images; Claude/GPT vision, DeepSeek text-only; v1.3 cells hold IR fixed</td></tr><tr><td><b>G</b></td><td>planning</td><td>brief-effect failures 0 / 64; unmatched tokens 0 (brief-check proxy only)</td></tr><tr><td><b>S</b></td><td>solver / placement</td><td>1,857 of 11,914 requested objects unplaced (pooled coverage 0.8441); 0 / 0 cross-room / wall–furniture overlaps</td></tr><tr><td><b>O</b></td><td>output / build</td><td>check errors 0, pool build errors 0, invalid candidates 0, red gates 0, shortfall 0; 7 library-gap warnings</td></tr></tbody></table></div>
   <p class="note">The seven check warnings are library gaps, not crashes: plan B carries
   a washing machine and plan C a drying rack, both category <code>other</code>, which the
   v1.4 library does not contain. They are recorded and dropped, not replaced. The full
@@ -178,8 +179,8 @@
 <section class="bench-section wrap" id="caveats">
   <h2>What is not tested</h2>
   <ul>
-    <li><b>P-stage perception.</b> Live image perception is now a separate <code>modelbench</code> arm (11 plans, Claude/GPT); the v1.3 main table still holds cached IR fixed, so the two are not mixed.</li>
-    <li><b>LLM-direct and system ablations.</b> LLM-direct and the multi-model comparison are now run (845 Claude/GPT runs; brief-effect 83.0%); the four matched system ablations (no-library, no-IR, no-solver) remain future work.</li>
+    <li><b>P-stage perception.</b> Live image perception is now a separate <code>modelbench</code> arm (12 images; Claude/GPT vision; DeepSeek text-only); the v1.3 main table still holds cached IR fixed, so the two are not mixed.</li>
+    <li><b>LLM-direct and system ablations.</b> LLM-direct and the multi-model comparison are now run (1,536 runs; Claude/GPT/DeepSeek; build 1,506/1,536; brief-effect 81.7%); the four matched system ablations (no-library, no-IR, no-solver) remain future work.</li>
     <li><b>Human preference.</b> The protocol is pre-registered; no participants have been run, so no preference number is claimed.</li>
     <li><b>Full render validation.</b> The main matrix is build-valid; only a small M6 subset has renders. The stress set has a four-candidate spot check.</li>
     <li><b>Generalisation.</b> Nine of eighteen plans are real, and R4–R9 are manual transcriptions, not fresh VLM outputs.</li>

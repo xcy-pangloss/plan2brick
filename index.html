@@ -70,10 +70,10 @@
   <div class="kpis reveal">
     <div class="kpi"><span class="kpi-n">18 / 64 / 384</span><span class="kpi-l">plans · applicable cells · candidates in the frozen benchmark</span></div>
     <div class="kpi"><span class="kpi-n">65<small>/65</small></span><span class="kpi-l">deterministic cells build + brief · 0.970 coverage · 0 overlaps</span></div>
-    <div class="kpi"><span class="kpi-n">6,951</span><span class="kpi-l">library candidates · 1,345 candidate plans · 3,802 aliases</span></div>
+    <div class="kpi"><span class="kpi-n">9,246</span><span class="kpi-l">library candidates · 1,345 candidate plans · 5,033 aliases</span></div>
     <div class="kpi"><span class="kpi-n">83<small>% → 100%</small></span><span class="kpi-l">brief compliance: AI + builder → Plan2Brick deterministic (0 model calls)</span></div>
   </div>
-  <p class="fineprint reveal">Latest snapshot · 11 Nov 2026. Claude/GPT perception recall 0.953 / 0.932; both fail change-room-use, while the deterministic tool passes 65/65. <a href="#latest">See the comparison ↓</a></p>
+  <p class="fineprint reveal">Latest snapshot · 11 Nov 2026, 12:50. Claude/GPT perception recall 0.948 / 0.930 (compact prompt, n=93/74); model planning still fails change-room-use in every family, while the deterministic tool passes 65/65. <a href="#latest">See the comparison ↓</a></p>
 </section>
 
 <section class="glance wrap" id="glance">
@@ -349,20 +349,21 @@
     <div class="kpi"><span class="kpi-n">18</span><span class="kpi-l">plans · 64 applicable cells · 384 candidates</span></div>
     <div class="kpi"><span class="kpi-n">0.868</span><span class="kpi-l">benchmark coverage · distance 0.568</span></div>
     <div class="kpi"><span class="kpi-n">65<small>/65</small></span><span class="kpi-l">deterministic cells build + brief · 0.970 coverage</span></div>
-    <div class="kpi"><span class="kpi-n">1,345</span><span class="kpi-l">candidate plans · 6,951 library items · 3,802 aliases</span></div>
+    <div class="kpi"><span class="kpi-n">1,345</span><span class="kpi-l">candidate plans · 9,246 library items · 5,033 aliases</span></div>
   </div>
   <div class="table-wrap reveal">
     <table class="results-table">
       <thead><tr><th>Comparison</th><th>Observed result</th><th>Reading</th></tr></thead>
       <tbody>
-        <tr><td><strong>Claude vs GPT · perception</strong></td><td class="num-cell">Claude recall 0.953 · dims 0.163 m · F1 0.781<br>GPT recall 0.932 · dims 0.156 m · F1 0.749</td><td>Claude is stronger on room/object recall; GPT is slightly better on dimensions/coverage and faster.</td></tr>
-        <tr><td><strong>AI + builder · 845 runs</strong></td><td class="num-cell">845/845 build · brief 701/845 (83.0%) · coverage 0.936</td><td>Geometry is safe, but model planning still fails change-room-use in every family.</td></tr>
+        <tr><td><strong>Claude vs GPT · perception (compact)</strong></td><td class="num-cell">Claude recall 0.948 · dims 0.190 m · F1 0.770 (n=93)<br>GPT recall 0.930 · dims 0.135 m · F1 0.762 (n=74)</td><td>Claude is stronger on room/object recall; GPT is better on dimensions/coverage and faster.</td></tr>
+        <tr><td><strong>AI + builder · Claude/GPT · 1,024 runs</strong></td><td class="num-cell">1,024/1,024 build · brief 849/1,024 (82.9%) · coverage 0.936</td><td>Geometry is safe, but model planning still fails change-room-use in every family.</td></tr>
+        <tr><td><strong>DeepSeek V4 Flash · text-only</strong></td><td class="num-cell">512/512 runs · build 482/512 (94.1%) · brief 406/512 (79.3%) · coverage 0.968</td><td>Highest build coverage, but lower schema/brief compliance; not a vision arm.</td></tr>
         <tr><td><strong>Raw AI direct</strong></td><td class="num-cell">0 valid LDraw; best structured CSV = valid 153-part flat model</td><td>“Convertible” is not “correct”; Claude/GPT long outputs hit upstream HTTP 500.</td></tr>
         <tr><td><strong>Plan2Brick deterministic</strong></td><td class="num-cell">65/65 build · 65/65 brief · coverage 0.970 · 0 overlaps · 0 calls</td><td>The tool layer, not a stronger model, is what makes the output reliable.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="fineprint reveal">Full protocol and failure taxonomy: <a href="benchmark.html">benchmark page</a>. Candidate assets are a reviewed pool and are not merged into the frozen library. The deterministic arm uses no model calls.</p>
+  <p class="fineprint reveal">Model comparison snapshot: 11 Nov 2026, 12:50; DeepSeek is text-only. Full protocol and failure taxonomy: <a href="benchmark.html">benchmark page</a>. Candidate assets are a reviewed pool and are not merged into the frozen library. The deterministic arm uses no model calls.</p>
 </section>
 
 <section class="library wrap" id="library">
