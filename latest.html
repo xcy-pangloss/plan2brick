@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plan2Brick · Latest results (25 Nov 2026)</title>
-<meta name="description" content="Plan2Brick latest results: real doors and windows, circulation repair, six style-specific furniture programmes, a 405-item validated library, and a packaged local workbench with three real-plan demos.">
-<meta property="og:title" content="Plan2Brick · Latest results (25 Nov 2026)">
-<meta property="og:description" content="Real doors/windows, bathroom-aware door repair, circulation, six style programmes, 405-item library, and a 1,350-file demo package.">
+<title>Plan2Brick · Latest results (26 Nov 2026)</title>
+<meta name="description" content="Plan2Brick latest results: real-plan layout closure, one exterior entrance per apartment, spanning-tree interior doors, real-height/translucent walls, circulation repair, six style-specific furniture programmes, a 405-item validated library, and a packaged local workbench.">
+<meta property="og:title" content="Plan2Brick · Latest results (26 Nov 2026)">
+<meta property="og:description" content="Closed real-plan layouts, one entrance, real-height doors with zero clipping, six style programmes, 405-item library, and a 1,370-file demo package.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://xcy-pangloss.github.io/plan2brick/latest.html">
 <meta property="og:image" content="https://xcy-pangloss.github.io/plan2brick/assets/latest/demo_3plans_with_inputs.png">
@@ -36,13 +36,13 @@
 <main id="main">
 
 <section class="detail-hero wrap">
-  <p class="eyebrow">Latest results · 25 November 2026</p>
+  <p class="eyebrow">Latest results · updated 26 November 2026</p>
   <h1>Doors, circulation,<br><em>and a 405-item library</em></h1>
-  <p class="subtitle">What changed since the 11 November benchmark update — and what is ready to demo.</p>
+  <p class="subtitle">What changed since the 11 November benchmark update — including the 26 November layout-closure and door-model pass.</p>
   <div class="links">
     <a class="pill primary" href="index.html#viewer"><span class="dot"></span>Open the 3D demo</a>
     <a class="pill" href="benchmark.html">Benchmark</a>
-    <a class="pill" href="assets/downloads/plan2brick_tool_v1.6_final.zip">Download the tool (6.0 MB)</a>
+    <a class="pill" href="assets/downloads/plan2brick_tool_v1.1_20261126.zip">Download the tool (6.1 MB)</a>
   </div>
 </section>
 
@@ -50,8 +50,8 @@
   <div class="kpi-row">
     <div><b>405</b><span>controlled library</span><em>16 categories · 9,521 parts</em></div>
     <div><b>3 / 3</b><span>real plans gate-green</span><em>0 cross-room and wall-furniture overlaps</em></div>
-    <div><b>6</b><span>style programmes</span><em>minimal / compact / balanced / family / wfh / spacious</em></div>
-    <div><b>1,350</b><span>files in the tool package</span><em>6.02 MB · selftest 10/10</em></div>
+    <div><b>1 / plan</b><span>exterior door</span><em>interior doors form a hallway-rooted tree</em></div>
+    <div><b>1,370</b><span>files in the tool package</span><em>6.08 MB · real-plan presets included</em></div>
   </div>
   <p class="fineprint">The frozen benchmark still uses its 58-item controlled library; v1.6_final is the new default for the workbench and the packaged tool.</p>
 </section>
@@ -68,13 +68,30 @@
     <li><b>Room-level grouping.</b> The solver now groups a dining table with chairs, a bed with bedside cabinet/lamp, and a sofa with TV and coffee table instead of placing every piece independently on a wall band.</li>
     <li><b>Style-specific programmes.</b> Six styles change both the optional pieces and the target furniture size; <code>size_class</code> preference picks small items for compact/minimal, medium for wfh, and large for family/spacious.</li>
     <li><b>Library v1.6_final.</b> 340 v1.5 items + 16 v1.6 promotions + 49 review promotions; validate 405/405. Retrieval: text 339/405, shape 362/405, synonym top-1 54/56, top-3 56/56.</li>
-    <li><b>Demo tool.</b> The local workbench supports presets, uploaded floor plans (Claude/GPT perception), room editing, brief edits, 3/6/9 candidates, 3D preview, and MPD/BOM downloads. The packaged build is 1,350 files / 6.02 MB and passes selftest 10/10.</li>
+    <li><b>Demo tool.</b> The local workbench supports presets, uploaded floor plans (Claude/GPT perception), room editing, brief edits, 3/6/9 candidates, 3D preview, and MPD/BOM downloads. The packaged build is 1,370 files / 6.08 MB.</li>
+  </ul>
+</section>
+
+<section class="wrap" id="layout-doors">
+  <div class="section-head">
+    <span class="num">02</span>
+    <h2>Closed real-plan layouts, one entrance, real-height doors</h2>
+  </div>
+  <figure style="margin:18px 0 24px">
+    <img src="assets/latest/workbench_r3_tall.png" alt="Plan2Brick workbench showing the repaired R3 real-plan layout, real-height translucent walls, and zero door clipping." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
+    <figcaption class="fineprint">R3 loaded as a real-plan preset: the missing 1.1 m corridor is repaired, the plan reports “closed / connected”, and the tall-wall mode shows 2.4 m translucent walls, 1.92 m doors, one exterior entrance and zero wall/furniture clips.</figcaption>
+  </figure>
+  <ul class="check-list">
+    <li><b>Real preset layouts.</b> R1, R2 and R3 load their transcribed <code>layout_m</code> instead of being re-packed. R3's east bedrooms were disconnected from the west block; the repair adds a 1.1 × 7.0 m hallway and all eight rooms now have a door route.</li>
+    <li><b>Door graph.</b> Interior doors are a minimum spanning tree rooted at the hallway/living room, not one door per shared edge. Each real plan has exactly one exterior entrance: R1 11 doors (1 exterior), R2 6 (1), R3 8 (1).</li>
+    <li><b>Door model and height.</b> The 1x4x5 <code>3861a</code> leaf is 1.2 m in the cutaway default. The new 2.4 m wall mode uses an 8-course opening and scales the leaf to a 1.92 m door with a 0.48 m lintel; translucent wall colour 47 keeps the interior visible.</li>
+    <li><b>Clipping audit.</b> Every placement JSON records door cells vs wall bricks and door approach zones vs furniture. R1/R2/R3 report <b>0 wall cell hits and 0 furniture zone hits</b>.</li>
   </ul>
 </section>
 
 <section class="wrap" id="plans">
   <div class="section-head">
-    <span class="num">02</span>
+    <span class="num">03</span>
     <h2>Three real floor plans</h2>
   </div>
   <figure style="margin:18px 0 24px">
@@ -96,7 +113,7 @@
 
 <section class="wrap" id="styles">
   <div class="section-head">
-    <span class="num">03</span>
+    <span class="num">04</span>
     <h2>Same plan, six style programmes</h2>
   </div>
   <figure style="margin:18px 0 24px">
@@ -120,7 +137,7 @@
 
 <section class="wrap" id="tool">
   <div class="section-head">
-    <span class="num">04</span>
+    <span class="num">05</span>
     <h2>The demo tool</h2>
   </div>
   <figure style="margin:18px 0 24px">
@@ -129,21 +146,21 @@
   </figure>
   <ul class="check-list">
     <li><b>Run locally:</b> <code>start-workbench.cmd</code>, then open <code>http://127.0.0.1:8000/app/workbench.html</code>.</li>
-    <li><b>Modes:</b> preset floor plan, upload real plan (Claude/GPT vision), or generate from room count.</li>
-    <li><b>Edits:</b> add / remove / replace / use / style in one sentence; candidates show style, palette and plan thumbnails.</li>
+    <li><b>Modes:</b> preset floor plan (studio/1–3 bedroom or real R1/R2/R3), upload real plan (Claude/GPT vision), or generate from room count.</li>
+    <li><b>Edits:</b> add / remove / replace / use / style in one sentence; candidates show style, palette, plan thumbnails, layout QA and door-clip counts.</li>
     <li><b>Outputs:</b> 3D preview, MPD, BOM, placements JSON and scene IR.</li>
-    <li><b>Package:</b> 1,350 files / 6.02 MB; selftest 10/10; six-style 3br generation 23.1 s with 0 overlaps.</li>
+    <li><b>Package:</b> 1,370 files / 6.08 MB; real-plan examples included; door/layout QA and tall-wall modes in the workbench.</li>
   </ul>
 </section>
 
 <section class="wrap" id="limits">
   <div class="section-head">
-    <span class="num">05</span>
+    <span class="num">06</span>
     <h2>Limitations and next</h2>
   </div>
   <ul class="check-list">
     <li>VLM realism is about 3.0–3.5 / 5; the demo uses three curated scenes, not a universal human-level claim.</li>
-    <li>R3 is 27/31; four dining chairs are dropped because the room is compact. R1/R2 are the primary demo scenes.</li>
+    <li>R3's real layout needed a 1.1 m corridor repair; the compact dining room still drops some chairs. R1/R2 are the cleanest demo scenes.</li>
     <li>The frozen benchmark and its 58-item library are unchanged; v1.6_final is the new product library.</li>
     <li>Next: library v1.7 promotion from the current style/size campaign, targeted bath/sofa/chair/fridge/washer QC, and final Term-End packaging.</li>
   </ul>
@@ -153,8 +170,8 @@
 </main>
 
 <footer class="site-foot wrap">
-  <span>Plan2Brick · latest results · 25 Nov 2026</span>
-  <span><a href="index.html">Project page</a> · <a href="goal.html">In detail</a> · <a href="benchmark.html">Benchmark</a> · <a href="assets/downloads/plan2brick_tool_v1.6_final.zip">Tool package</a></span>
+  <span>Plan2Brick · latest results · 26 Nov 2026</span>
+  <span><a href="index.html">Project page</a> · <a href="goal.html">In detail</a> · <a href="benchmark.html">Benchmark</a> · <a href="assets/downloads/plan2brick_tool_v1.1_20261126.zip">Tool package</a></span>
 </footer>
 </body>
 </html>
