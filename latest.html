@@ -9,7 +9,7 @@
 <meta property="og:description" content="Closed real-plan layouts, one entrance, real-height doors with zero clipping, six style programmes, 405-item library, and a 1,370-file demo package.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://xcy-pangloss.github.io/plan2brick/latest.html">
-<meta property="og:image" content="https://xcy-pangloss.github.io/plan2brick/assets/latest/demo_3plans_with_inputs.png">
+<meta property="og:image" content="https://xcy-pangloss.github.io/plan2brick/assets/latest/demo_3plans_closed.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='20' width='52' height='34' rx='6' fill='%23b23a2e'/%3E%3Crect x='14' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3Crect x='38' y='12' width='12' height='10' rx='3' fill='%23b23a2e'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./styles.css">
 <link rel="stylesheet" href="./goal.css">
@@ -42,14 +42,14 @@
   <div class="links">
     <a class="pill primary" href="index.html#viewer"><span class="dot"></span>Open the 3D demo</a>
     <a class="pill" href="benchmark.html">Benchmark</a>
-    <a class="pill" href="assets/downloads/plan2brick_tool_v1.1_20261126.zip">Download the tool (6.1 MB)</a>
+    <a class="pill" href="assets/downloads/plan2brick_tool_v1.2_20261126.zip">Download the tool (6.1 MB)</a>
   </div>
 </section>
 
 <section class="wrap" id="summary">
   <div class="kpi-row">
     <div><b>405</b><span>controlled library</span><em>16 categories · 9,521 parts</em></div>
-    <div><b>3 / 3</b><span>real plans gate-green</span><em>0 cross-room and wall-furniture overlaps</em></div>
+    <div><b>3 / 3</b><span>real plans closed / connected</span><em>0 overlaps · 0 door clips</em></div>
     <div><b>1 / plan</b><span>exterior door</span><em>interior doors form a hallway-rooted tree</em></div>
     <div><b>1,370</b><span>files in the tool package</span><em>6.08 MB · real-plan presets included</em></div>
   </div>
@@ -62,7 +62,7 @@
     <h2>What changed since 11 November</h2>
   </div>
   <ul class="check-list">
-    <li><b>Real doors and windows.</b> Openings are carved into the LEGO wall courses; door leaf <code>3861a</code>, window frame <code>3853</code> and glass <code>3855b</code> are counted in the MPD and BOM. Door leaves are brown so they read differently from blue window glass.</li>
+    <li><b>Real doors and windows.</b> Openings are carved into the LEGO wall courses; the closed door <code>60616a</code>, window frame <code>3853</code> and glass <code>3855b</code> are counted in the MPD and BOM. Doors are brown so they read differently from blue window glass; the 2.4 m wall mode is now the Workbench default.</li>
     <li><b>Bathroom-aware door repair.</b> A half-stud door-grid offset was corrected; blocked bathroom doors slide along the shared wall and are removed only when the same bathroom keeps another usable door.</li>
     <li><b>Circulation.</b> A one-stud grid BFS checks door-to-door connectivity and the reachable floor ratio; low-priority furniture is removed only when it blocks a path.</li>
     <li><b>Room-level grouping.</b> The solver now groups a dining table with chairs, a bed with bedside cabinet/lamp, and a sofa with TV and coffee table instead of placing every piece independently on a wall band.</li>
@@ -78,18 +78,18 @@
     <h2>Closed real-plan layouts, one entrance, real-height doors</h2>
   </div>
   <figure style="margin:18px 0 24px">
-    <img src="assets/latest/workbench_r3_tall.png" alt="Plan2Brick workbench showing the repaired R3 real-plan layout, real-height translucent walls, and zero door clipping." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
-    <figcaption class="fineprint">R3 loaded as a real-plan preset: the missing 1.1 m corridor is repaired, the plan reports “closed / connected”, and the tall-wall mode shows 2.4 m translucent walls, 1.92 m doors, one exterior entrance and zero wall/furniture clips.</figcaption>
+    <img src="assets/latest/demo_3plans_cutaway.png" alt="Cutaway preview of R1, R2 and R3 real plans with walls hidden so furniture and door routes are readable." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
+    <figcaption class="fineprint">Cutaway preview of the three real-plan presets (walls hidden in the viewer). The generated scene keeps 2.4 m walls and 1.92 m closed doors; use “Show full walls” in the Workbench to switch views. Every plan reports one exterior door, closed/connected layout and 0/0 door clips.</figcaption>
   </figure>
   <ul class="check-list">
     <li><b>Real preset layouts.</b> R1, R2 and R3 load their transcribed <code>layout_m</code> instead of being re-packed. R3's east bedrooms were disconnected from the west block; the repair adds a 1.1 × 7.0 m hallway and all eight rooms now have a door route.</li>
     <li><b>Door graph.</b> Interior doors are a minimum spanning tree rooted at the hallway/living room, not one door per shared edge. Each real plan has exactly one exterior entrance: R1 11 doors (1 exterior), R2 6 (1), R3 8 (1).</li>
-    <li><b>Door model and height.</b> The 1x4x5 <code>3861a</code> leaf is 1.2 m in the cutaway default. The new 2.4 m wall mode uses an 8-course opening and scales the leaf to a 1.92 m door with a 0.48 m lintel; translucent wall colour 47 keeps the interior visible.</li>
+    <li><b>Door model and height.</b> The visible leaf is now the solid, normally closed <code>60616a</code> door with handle (not the glazed panel). The Workbench default is a 10-course <b>2.4 m</b> wall; an 8-course opening gives a <b>1.92 m door</b> with a 0.48 m lintel. A cutaway preview hides walls in the viewer, while the downloadable MPD/LDR keeps the full shell.</li>
     <li><b>Clipping audit.</b> Every placement JSON records door cells vs wall bricks and door approach zones vs furniture. R1/R2/R3 report <b>0 wall cell hits and 0 furniture zone hits</b>.</li>
   </ul>
   <figure style="margin:18px 0 8px">
-    <img src="assets/latest/demo_3plans_tall.png" alt="R1, R2 and R3 real plans generated with real-height translucent walls, one exterior door each and zero door clipping." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
-    <figcaption class="fineprint">26 Nov three-plan comparison from the Workbench real-plan presets: R1 31/31 furniture · 11/10 doors/windows; R2 14/14 · 6/5; R3 22/24 · 8/8. Every plan has one exterior door, closed/connected layout, and 0/0 door clips.</figcaption>
+    <img src="assets/latest/demo_3plans_closed.png" alt="R1, R2 and R3 real plans with full 2.4 m walls and closed 60616a doors." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
+    <figcaption class="fineprint">Full-wall view: R1 31/31 furniture · 11/10 doors/windows; R2 14/14 · 6/5; R3 22/24 · 8/8. Every plan has one exterior entrance, closed/connected layout, and 0/0 door clips; solid brown doors are normally closed.</figcaption>
   </figure>
 </section>
 
@@ -99,20 +99,20 @@
     <h2>Three real floor plans</h2>
   </div>
   <figure style="margin:18px 0 24px">
-    <img src="assets/latest/demo_3plans_with_inputs.png" alt="Three real floor plans shown with their generated LEGO home and top views." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
-    <figcaption class="fineprint">Input floor plan / generated home view / top view for R1, R2 and R3. Library v1.6_final; brown door leaves.</figcaption>
+    <img src="assets/latest/demo_3plans_closed.png" alt="R1, R2 and R3 real plans with full 2.4 m walls and closed 60616a doors." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
+    <figcaption class="fineprint">26 Nov real-plan run with full 2.4 m walls and closed doors. Input plans are available in the demo package; the cutaway preview is shown in the section above.</figcaption>
   </figure>
   <div class="table-scroll">
     <table class="data-table">
-      <thead><tr><th>Scene</th><th>Coverage</th><th>Parts</th><th>Gate</th><th>Circulation</th><th>VLM realism (Claude / GPT)</th></tr></thead>
+      <thead><tr><th>Scene</th><th>Coverage</th><th>Parts</th><th>Doors / windows</th><th>Exterior</th><th>Layout</th><th>Clips</th></tr></thead>
       <tbody>
-        <tr><td><b>R1</b></td><td class="num">50 / 50</td><td class="num">1,549</td><td class="gate">GREEN</td><td>True</td><td class="num">4 / 3</td></tr>
-        <tr><td><b>R2</b></td><td class="num">25 / 25</td><td class="num">760</td><td class="gate">GREEN</td><td>True</td><td class="num">3 / 4</td></tr>
-        <tr><td><b>R3</b></td><td class="num">27 / 31</td><td class="num">1,057</td><td class="gate">GREEN</td><td>True</td><td class="num">3 / 3</td></tr>
+        <tr><td><b>R1</b></td><td class="num">31 / 31</td><td class="num">1,857</td><td class="num">11 / 10</td><td class="num">1</td><td class="gate">closed</td><td class="num">0 / 0</td></tr>
+        <tr><td><b>R2</b></td><td class="num">14 / 14</td><td class="num">924</td><td class="num">6 / 5</td><td class="num">1</td><td class="gate">closed</td><td class="num">0 / 0</td></tr>
+        <tr><td><b>R3</b></td><td class="num">22 / 24</td><td class="num">1,291</td><td class="num">8 / 8</td><td class="num">1</td><td class="gate">closed</td><td class="num">0 / 0</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="fineprint">R3 drops four dining chairs in a compact dining room; R1/R2 are the cleanest demo scenes. All three have zero overlaps.</p>
+  <p class="fineprint">R3 includes the automatic 1.1 m corridor repair; 2 dining chairs are still dropped because the room is compact. “Clips” counts wall-cell / furniture-zone door intersections.</p>
 </section>
 
 <section class="wrap" id="styles">
@@ -175,7 +175,7 @@
 
 <footer class="site-foot wrap">
   <span>Plan2Brick · latest results · 26 Nov 2026</span>
-  <span><a href="index.html">Project page</a> · <a href="goal.html">In detail</a> · <a href="benchmark.html">Benchmark</a> · <a href="assets/downloads/plan2brick_tool_v1.1_20261126.zip">Tool package</a></span>
+  <span><a href="index.html">Project page</a> · <a href="goal.html">In detail</a> · <a href="benchmark.html">Benchmark</a> · <a href="assets/downloads/plan2brick_tool_v1.2_20261126.zip">Tool package</a></span>
 </footer>
 </body>
 </html>
