@@ -78,13 +78,13 @@
     <h2>Closed real-plan layouts, one entrance, real-height doors</h2>
   </div>
   <figure style="margin:18px 0 24px">
-    <img src="assets/latest/demo_3plans_cutaway.png" alt="Cutaway preview of R1, R2 and R3 real plans with walls hidden so furniture and door routes are readable." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
-    <figcaption class="fineprint">Cutaway preview of the three real-plan presets (walls hidden in the viewer). The generated scene keeps 2.4 m walls and 1.92 m closed doors; use “Show full walls” in the Workbench to switch views. Every plan reports one exterior door, closed/connected layout and 0/0 door clips.</figcaption>
+    <img src="assets/latest/demo_3plans_cutaway.png" alt="Cutaway preview of R1, R2 and R3 real plans with lower 1.2 m walls so furniture and door routes are readable." style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff">
+    <figcaption class="fineprint">Cutaway preview of the three real-plan presets (lower 1.2 m wall band in the viewer). The generated scene keeps 2.4 m walls and 1.92 m closed doors; use “Show full walls” in the Workbench to switch views. Every plan reports one exterior door, closed/connected layout and 0/0 door clips.</figcaption>
   </figure>
   <ul class="check-list">
     <li><b>Real preset layouts.</b> R1, R2 and R3 load their transcribed <code>layout_m</code> instead of being re-packed. R3's east bedrooms were disconnected from the west block; the repair adds a 1.1 × 7.0 m hallway and all eight rooms now have a door route.</li>
     <li><b>Door graph.</b> Interior doors are a minimum spanning tree rooted at the hallway/living room, not one door per shared edge. Each real plan has exactly one exterior entrance: R1 11 doors (1 exterior), R2 6 (1), R3 8 (1).</li>
-    <li><b>Door model and height.</b> The visible leaf is now the solid, normally closed <code>60616a</code> door with handle (not the glazed panel). The Workbench default is a 10-course <b>2.4 m</b> wall; an 8-course opening gives a <b>1.92 m door</b> with a 0.48 m lintel. A cutaway preview hides walls in the viewer, while the downloadable MPD/LDR keeps the full shell.</li>
+    <li><b>Door model and height.</b> The visible leaf is now the solid, normally closed <code>60616a</code> door with handle (not the glazed panel). The Workbench default is a 10-course <b>2.4 m</b> wall; an 8-course opening gives a <b>1.92 m door</b> with a 0.48 m lintel. The viewer opens a lower 1.2 m cutaway band, while the downloadable MPD/LDR keeps the full shell.</li>
     <li><b>Clipping audit.</b> Every placement JSON records door cells vs wall bricks and door approach zones vs furniture. R1/R2/R3 report <b>0 wall cell hits and 0 furniture zone hits</b>.</li>
   </ul>
   <figure style="margin:18px 0 8px">
